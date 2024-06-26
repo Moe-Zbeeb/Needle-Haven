@@ -9,4 +9,7 @@ To update the req text file pip freeze > requirements.txt
 and please commit changes in venv
 
 
-
+sprint 2 details : 
+  start some front end basics 
+  add necassities in backend 
+  models 
