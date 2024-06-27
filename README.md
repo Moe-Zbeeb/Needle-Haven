@@ -15,23 +15,7 @@ sprint 2 details :
   models 
 
 
-**main web/
-├── init.py
-├── db.py
-├── schema.sql
-├── auth.py
-├── blog.py
-├── templates/
-│ ├── base.html
-│ ├── auth/
-│ │
-│ │
-│ └── blog/
-│
-│
-│
-└── static/
-└── js/
-└── css/
-tests/**
+![image](https://github.com/zbeeb1/Amazon-Industry-Program-3.0/assets/134772110/541d9993-460b-46c1-b3a6-2e93c0ce3308)
+
+
 
