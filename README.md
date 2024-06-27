@@ -15,22 +15,23 @@ sprint 2 details :
   models 
 
 
-├── main web/
-│   ├── _init_.py
-│   ├── db.py
-│   ├── schema.sql
-│   ├── auth.py
-│   ├── blog.py
-│   ├── templates/
-│   │   ├── base.html
-│   │   ├── auth/
-│   │   │   
-│   │   │   
-│   │   └── blog/
-│   │       
-│   │       
-│   │       
-│   └── static/
-│       └─ js
-        |_ CSS
-├── tests/
+**main web/
+├── init.py
+├── db.py
+├── schema.sql
+├── auth.py
+├── blog.py
+├── templates/
+│ ├── base.html
+│ ├── auth/
+│ │
+│ │
+│ └── blog/
+│
+│
+│
+└── static/
+└── js/
+└── css/
+tests/**
+
