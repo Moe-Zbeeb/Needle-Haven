@@ -1,1 +1,3 @@
-# Amazon-Industry-Program-3.0 ![image](https://github.com/zbeeb1/CHIC/assets/134772110/b481c3f0-45d9-4be6-802a-d1e64eebb450)
+# Amazon-Industry-Program-3.0  
+![image](https://github.com/zbeeb1/CHIC/assets/134772110/cd51daf4-080b-45d9-9485-2bd496250c7c)
+
