@@ -1,21 +1,5 @@
-# Amazon-Industry-Program-3.0 
+# Amazon-Industry-Program-3.0 ![image](https://github.com/zbeeb1/CHIC/assets/134772110/23bb601e-2a9f-4439-bd54-23f3befd4ed8)
 
-To run the application,run the virtual environement, flask --app main_web run --debug 
-
-
-To update the req text file pip freeze > requirements.txt 
-
-
-and please commit changes in venv
-
-
-sprint 2 details : 
-  start some front end basics 
-  add necassities in backend 
-  models 
-
-
-![image](https://github.com/zbeeb1/Amazon-Industry-Program-3.0/assets/134772110/541d9993-460b-46c1-b3a6-2e93c0ce3308)
 
 
 
