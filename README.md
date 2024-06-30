@@ -8,9 +8,7 @@
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
 - [Updating Requirements](#updating-requirements)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+
 
 ## Prerequisites
 Before you begin, ensure you have the following installed on your system:
