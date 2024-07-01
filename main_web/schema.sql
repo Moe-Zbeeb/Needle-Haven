@@ -16,7 +16,7 @@ CREATE TABLE user (
     last_name VARCHAR(50),                 
     date_of_birth DATE,                  
     registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
-    last_login TIMESTAMP,                 
+    last_login TIMESTAMP ,                 
     is_active BOOLEAN DEFAULT TRUE        
 );     
 

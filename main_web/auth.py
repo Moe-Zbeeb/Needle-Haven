@@ -35,7 +35,7 @@ def register():
             error = 'Date of Birth is required.'  
 
         if error is None:
-            try:
+            try: 
                 db.execute(
                     "INSERT INTO user (username, password_hash, email, first_name, last_name, date_of_birth) VALUES (?, ?, ?, ?, ?, ?)",
                     (username, generate_password_hash(password), email, first_name, last_name, date_of_birth),
@@ -70,14 +70,41 @@ def login():
 
         if error is None:
             session.clear()
-            session['user_id'] = user['id']
+            session['user_id'] = user['id'] 
+            db.execute(
+                'UPDATE user SET last_login = CURRENT_TIMESTAMP WHERE id = ?', (user['id'],)
+            )
             return redirect(url_for('index'))
 
         flash(error)
 
     return render_template('auth/login.html')  
 
-    
+@bp.before_app_request 
+def load_a_user():  
+    user_id = session.get('user_id')  
+    if  user_id is None :  
+        g.user =  None  
+    else:  
+        g.user = get_db().execute( 'SELECT * FROM user WHERE id = ?', (user_id,)
+        ).fetchone()   
+
+ 
+@bp.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
+
+def login_required(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user is None:
+            return redirect(url_for('auth.login'))
+
+        return view(**kwargs)
+
+    return wrapped_view
 
 def send_welcome_email(to, username):
     msg = Message("Welcome to Our Service",
