@@ -57,3 +57,44 @@ Before you begin, ensure you have the following installed on your system:
 After making changes to the code, update the dependencies by running:
 ```bash
 pip freeze > requirements.txt
+
+
+├── .github/
+│   └── workflows/
+│       ├── python-package.yml
+│       └── python-publish.yml
+├── README.md
+├── main_models_classes/
+│   ├── .gitkeep
+│   ├── datasets/
+│   │   ├── .gitkeep
+│   │   ├── Expected Growth in EPS - Next 5 years.csv
+│   │   ├── clothes_price_prediction_data.csv
+│   │   └── updated_fashion_data_2018_2022.csv
+│   ├── notebooks/
+│   │   ├── Expected Growth in EPS - Next 5 years.ipynb
+│   │   ├── clothes_price_prediction_data.ipynb
+│   │   └── ratingmodel.py
+│   └── weights/
+│       ├── clothes_price_prediction_model.pkl
+│       └── rating.pkl
+├── main_web/
+│   ├── __init__.py
+│   ├── auth.py
+│   ├── blog.py
+│   ├── db.py
+│   ├── schema.sql
+│   ├── static/
+│   │   ├── .gitkeep
+│   │   ├── CSS/
+│   │   │   └── .gitkeep
+│   │   └── JS/
+│   │       └── .gitkeep
+│   └── templates/
+│       ├── .gitkeep
+│       ├── auth/
+│       │   └── .gitkeep
+│       └── blog/
+│           └── .gitkeep
+├── requirements.txt
+
