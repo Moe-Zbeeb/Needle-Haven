@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f5f5;
+    height: 100vh;
+    background-image:url("../images/i2.jpeg");
+    background-size: cover; /* Ensure the image covers the entire header */
+    background-position: center; /* Center the background image */
+}
+
+/*-----------------------------header--------------------*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    position: fixed; /* Make header fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 10; /* Ensure header is above other elements */
+}
+
+
+.logo {
+    top: -10px;
+    position: relative;
+    z-index: 15; /* Ensure the logo is above header-right */
+}
+
+.logo img {
+    position: absolute;
+    top: -10px; /* Adjust this value to move the logo higher */
+    left: 0;
+    height: 60px;
+    width: 120px;
+    transition: opacity 0.3s ease; /* Smooth transition for filter change */
+}
+
+.alternate {
+    opacity: 0; /* Start with the alternate logo hidden */
+}
+
+.header-right {
+    position: absolute;
+    background-color: black;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 220px; /* Initial width */
+    transition: width 0.5s ease; /* Smooth transition for width change */
+    z-index: 9; /* Ensure header-right is below the icons and logo */
+}
+
+.icon-container {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+    gap: 25px;
+    z-index: 20; /* Ensure icon-container is above header-right */
+}
+
+.gpt-icon-img {
+    width: 45px;  /* Adjust the width as needed */
+    height: 24px;  /* Adjust the height as needed */
+}
+
+.icon-container i{
+    font-size: 20px;
+    cursor: pointer;
+    fill: white; /* Ensure the SVG icon is white */
+}
+
+.icon-container i:hover,
+.icon-container img:hover{
+    transform: scale(1.2); /* Scale the icon to 120% of its original size */
+    transition: transform 0.2s ease-in-out; /* Smooth transition effect */
+}
+
+.cart-button i {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.gpt-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.gpt-button img {
+    width: 52px; /* Adjust as needed */
+    height: 32px; /* Adjust as needed */
+    display: block;
+}
+
+/*--------------------General-----------------*/
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.sign-in-container {
+    background: #fff;
+    padding: 0;
+    width: 650px; /* Increased width */
+    max-width: 90%;
+    text-align: center;
+    position: relative;
+    z-index: 20;
+}
+
+.sign-in-header {
+    background-image:url("../images/images.jpeg");
+    background-size: cover; /* Ensure the image covers the entire header */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat;
+    padding: 100px; /* Increased padding */
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+
+
+.sign-in-header h1 {
+    margin-bottom: 20px;
+    font-size: 40px; /* Increased font size */
+    color: white; /* White color for better readability */
+}
+
+.sign-in-header p {
+    font-size: 18px; /* Increased font size */
+    margin-bottom: 20px;
+    color: white;
+}
+
+.sign-in-form {
+    padding: 50px;
+}
+
+.sign-in-form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ff69b4;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    background: #ff69b4; /* Set the background color to pink */
+    border-radius: 5px;
+    padding: 10px;
+    color: white; /* Set the text color to white for better readability */
+}
+
+.input-group i {
+    color: white; /* Ensure the icon color is also white for consistency */
+}
+
+.input-group input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    color: white; /* Ensure the input text color is white */
+    padding-left: 10px;
+}
+
+/* Optional: Adjust placeholder text color */
+.input-group input::placeholder {
+    color: white; /* Set the placeholder text color to white */
+
+}
+
+
+.remember-me {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.remember-me label {
+    font-size: 14px;
+    color: #ff69b4;
+}
+
+.forgot-password {
+    font-size: 14px;
+    color: #ff69b4;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    padding: 15px; /* Increased padding */
+    border: none;
+    background: #ff69b4;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff69b4;
+}
+
+.sign-up-prompt {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ff69b4;
+}
+
+.sign-up-link {
+    color: #ff69b4;
+    text-decoration: none;
+}
+
+.sign-up-link:hover {
+    text-decoration: underline;
+}
+
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    border: 2px solid pink; /* Pink border */
+    appearance: none; /* Remove default checkbox styling */
+    outline: none; /* Remove default outline */
+    cursor: pointer; /* Change cursor to pointer */
+    background-color: white; /* White background */
+}
+
+input[type="checkbox"]:checked {
+    background-color: pink; /* Pink background when checked */
+    border: 2px solid pink; /* Ensure the border remains pink */
+    position: relative;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
