@@ -16,6 +16,7 @@ body {
     min-height: 200vh; /* Set minimum height to allow scrolling */
 }
 
+/*-----------------------------header--------------------*/
 header {
     display: flex;
     justify-content: space-between;
@@ -29,6 +30,7 @@ header {
     height: 80px;
     z-index: 10; /* Ensure header is above other elements */
 }
+
 
 .logo {
     top: -10px;
@@ -77,23 +79,37 @@ header {
     height: 24px;  /* Adjust the height as needed */
 }
 
-.icon-container i,
-.icon-container svg {
-    font-size: 24px;
+.icon-container i{
+    font-size: 20px;
     cursor: pointer;
     fill: white; /* Ensure the SVG icon is white */
 }
 
 .icon-container i:hover,
-.icon-container svg:hover {
-    color: #007BFF;
-    fill: #007BFF; /* Change the fill color on hover for SVG */
+.icon-container img:hover{
+    transform: scale(1.2); /* Scale the icon to 120% of its original size */
+    transition: transform 0.2s ease-in-out; /* Smooth transition effect */
 }
 
 .cart-button i {
     font-size: 24px;
     cursor: pointer;
 }
+
+.gpt-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.gpt-button img {
+    width: 52px; /* Adjust as needed */
+    height: 32px; /* Adjust as needed */
+    display: block;
+}
+
+/*--------------------General-----------------*/
 
 .content {
     flex: 1;
@@ -119,6 +135,7 @@ h1, h2, h3 {
     align-items: center; /* Center vertically */
     margin: 0; /* Remove default margin */
 }
+
 
 /*--------------------PAGE1------------------*/
 
@@ -155,8 +172,12 @@ h1, h2, h3 {
 .images img:nth-child(4) { animation-delay: 3s; }
 
 @keyframes slideshow {
-    0%, 100% { opacity: 0; }
-    25%, 75% { opacity: 1; }
+    0% { opacity: 0; }
+    25% { opacity: 0; }
+    30% { opacity: 1; }
+    50% { opacity: 1; }
+    55% { opacity: 0; }
+    100% { opacity: 0; }
 }
 
 .mask {
@@ -178,8 +199,8 @@ p{
     
 }
 
+
 .footer {
-  
     color: #fff;
     padding: 20px 0;
     text-align: center;
@@ -220,7 +241,7 @@ p{
 
     letter-spacing: 1px;
     position: absolute;
-    right: 20px; /* Distance from the right edge */
+    right: 25px; /* Distance from the right edge */
     top: 50%; /* Center vertically */
     transform: translateY(-50%); /* Adjust for proper centering */
     padding: 14px 50px;
@@ -263,6 +284,40 @@ p{
     background-color: #000000; /* Darken the background color on hover */
 }
 
+@media (max-width: 1250px) {
+    .buttons-container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%; /* Adjust width to fit container */
+    }
+
+    .contact-button {
+        width: calc(100% - 300px); /* Adjust width to fit container */
+        margin: 10px 0; /* Add margin for spacing */
+        padding: 5px 15px; /* Smaller size */
+        font-size: 16px;
+        margin-top: 5px;
+        display: block; /* Ensure contact button appears first */
+        align-self: flex-start; /* Align button to the left */
+    }
+
+    .shop-button {
+        width: calc(100% - 300px); /* Adjust width to fit container */
+        margin: 10px 0; /* Add margin for spacing */
+        padding: 5px 15px; /* Appropriate size */
+        font-size: 16px;
+        display: block; /* Ensure shop button appears second */
+        align-self: flex-end; /* Align button to the right */
+        margin-top: 50px; /* Move the button down */
+        margin-left: auto; /* Align button to the right */
+    }
+    
+
+    .container {
+        margin-bottom: 20px; /* Add margin to separate container from buttons */
+    }
+    .page1 h1{margin-top:100px}
+}
 /* -----------------------ABOUT US----------------------------------- */
 
 
@@ -326,6 +381,7 @@ p{
     
     font-size: 15px; /* Adjust the font size as needed */
     line-height: 1.6;
+    text-align:left;
 }
 
 
@@ -361,6 +417,28 @@ p{
     margin: 20px auto; /* Space above and below the line */
 }
 
+/* Media Query for Responsive Design */
+@media (max-width: 1250px) {
+    .content-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-container, .right-container {
+        flex: none;
+        width: 100%;
+        text-align: center; /* Center text in smaller screens */
+    }
+
+    .right-container {
+        text-align: left; /* Ensure text in the right container is left-aligned */
+        margin-top: 20px;
+    }
+
+    .thin-line {
+        width: 100%; /* Ensure the thin line spans the full width */
+    }
+}
 
 /*------------------------Our services--------------*/
 .services-container {
@@ -418,7 +496,8 @@ p{
 }
 
 .image-container img {
-    width: 100%;
+    height: 70%;
+    width: 70%;
     transition: filter 0.3s ease;
 }
 
@@ -426,9 +505,9 @@ p{
     font-size: 15px;
     padding: 20px;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 0%;
+    left: 15%;
+    width: 70%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
