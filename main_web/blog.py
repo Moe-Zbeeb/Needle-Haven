@@ -10,6 +10,7 @@ from main_web import mail
 bp = Blueprint('blog', __name__)
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
+
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
@@ -39,15 +40,11 @@ def load_logged_in_user():
 
 """The following functions fetch all products from the database and render them on the index page.  
 The products are fetched by joining the Product and Store tables on the store_id column. 
-I render the products on the index page using the render_template function.""" 
+I render the products on the index page using the render_template function."""    
+
 @bp.route('/')
 def index():
-    db = get_db()
-    products = db.execute(
-        'SELECT p.id, p.name, p.description, p.price, p.rating, s.name AS store_name FROM Product p'
-        ' JOIN Store s ON p.store_id = s.id'
-    ).fetchall()
-    return render_template('blog/index.html', products=products)  
+    return render_template('index.html')  
 
 """The following function fetches a single product from the database and renders it on the product page.
 The product is fetched by joining the Product, Store, and ProductImages tables on the store_id and product_id columns.

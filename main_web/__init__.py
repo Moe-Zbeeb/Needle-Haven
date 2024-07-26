@@ -39,6 +39,10 @@ def create_app(test_config=None):
 
     db.init_app(app)
     mail.init_app(app)  # Initialize Flask-Mail
-    app.register_blueprint(auth.bp)
+    app.register_blueprint(auth.bp) 
+
+    from . import blog
+    app.register_blueprint(blog.bp)
+    
 
     return app
