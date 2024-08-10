@@ -1,0 +1,661 @@
+product_name,gender,category,color,age_group,season,price,material,sales_count,average_rating,brand,discount
+Biker Jacket,Male,Shirt,White,25-35,Spring,70.36,Synthetic,75,4.9,ZARA,20
+Business Shirt,Male,Jacket,Beige,18-24,Summer,91.59,Wool,296,3.5,ZARA,0
+Wool Jacket,Female,Dress,Brown,18-24,All,129.52,Wool,50,4.3,ZARA,5
+Summer Dress,Male,Shorts,White,25-35,All,116.01,Cotton,435,4.6,ZARA,10
+Casual Jeans,Male,Shirt,Beige,35-45,Winter,125.48,Viscose,79,3.6,ZARA,0
+Business Shirt,Female,Shirt,Brown,35-45,Spring,23.9,Denim,332,4.7,ZARA,15
+Casual Jeans,Female,Blouse,Beige,25-35,All,27.95,Denim,100,4.0,ZARA,10
+Heels,Male,Shoes,Beige,25-35,Autumn,87.09,Viscose,333,3.2,ZARA,0
+Beach Shirt,Female,Shirt,Brown,35-45,All,97.1,Denim,424,3.5,ZARA,10
+Pattern Skirt,Female,Jeans,Brown,35-45,Summer,42.82,Synthetic,335,4.1,ZARA,0
+Business Shirt,Female,Dress,Beige,25-35,All,85.52,Synthetic,304,3.7,ZARA,5
+Blouse,Female,Jacket,White,18-24,Spring,36.11,Cotton,62,4.6,ZARA,0
+Chino Shorts,Female,Jeans,Red,25-35,Autumn,112.16,Leather,352,4.4,ZARA,20
+Pattern Skirt,Female,Jeans,Pink,18-24,Winter,91.96,Leather,461,4.0,ZARA,10
+Blouse,Female,Shorts,Red,35-45,Spring,41.31,Denim,265,3.7,ZARA,10
+Blouse,Female,Jeans,Pink,35-45,All,140.63,Synthetic,146,4.6,ZARA,10
+Pattern Skirt,Male,Shorts,White,18-24,Winter,76.42,Synthetic,296,3.0,ZARA,5
+Summer Dress,Male,Skirt,Pink,18-24,Summer,113.35,Cotton Blend,247,3.3,ZARA,5
+Casual Jeans,Female,Shorts,Pink,18-24,Summer,90.37,Viscose,437,4.8,ZARA,15
+Pattern Skirt,Female,Skirt,White,35-45,Spring,74.13,Synthetic,356,3.8,ZARA,0
+Blouse,Male,Skirt,Pink,35-45,All,25.48,Cotton,451,3.6,ZARA,10
+Blouse,Male,Jeans,White,18-24,Summer,147.52,Cotton,189,3.9,ZARA,15
+Heels,Male,Shoes,White,25-35,Autumn,137.01,Synthetic,426,4.2,ZARA,15
+Pattern Skirt,Male,Shoes,Beige,18-24,Summer,87.58,Wool,377,4.8,ZARA,5
+Blouse,Female,Dress,Beige,25-35,Winter,67.56,Cotton Blend,198,3.8,ZARA,20
+Casual Jeans,Male,Shorts,White,18-24,Summer,71.04,Leather,405,3.2,ZARA,15
+Summer Dress,Male,Jeans,White,35-45,Autumn,67.63,Viscose,177,4.6,ZARA,20
+Business Shirt,Male,Shorts,Brown,35-45,Autumn,141.71,Viscose,234,4.1,ZARA,15
+Summer Dress,Female,Skirt,Beige,18-24,All,57.57,Synthetic,78,3.2,ZARA,10
+Casual Jeans,Male,Dress,Brown,35-45,Summer,73.83,Leather,244,3.9,ZARA,10
+Blouse,Male,Shorts,Beige,35-45,Winter,62.27,Synthetic,381,4.0,ZARA,5
+Biker Jacket,Female,Shirt,Beige,18-24,All,60.63,Leather,142,4.5,ZARA,15
+Beach Shirt,Male,Blouse,Brown,35-45,All,95.85,Cotton Blend,78,3.3,ZARA,0
+Blouse,Male,Skirt,Brown,18-24,Autumn,115.58,Wool,168,3.6,ZARA,5
+Wool Jacket,Male,Skirt,Brown,25-35,Autumn,27.99,Wool,87,4.3,ZARA,15
+Casual Jeans,Female,Jeans,Beige,35-45,Summer,51.7,Synthetic,123,3.1,ZARA,5
+Pattern Skirt,Male,Dress,White,18-24,Spring,119.51,Viscose,466,4.7,ZARA,5
+Beach Shirt,Male,Blouse,White,35-45,All,143.34,Cotton Blend,205,4.2,ZARA,20
+Heels,Female,Shirt,Beige,18-24,Autumn,88.76,Denim,360,3.1,ZARA,0
+Summer Dress,Male,Shorts,Brown,18-24,Summer,128.54,Leather,138,3.6,ZARA,0
+Beach Shirt,Male,Shoes,Beige,25-35,Winter,37.19,Wool,160,4.0,ZARA,15
+Biker Jacket,Male,Blouse,White,25-35,Winter,31.6,Leather,217,4.6,ZARA,10
+Biker Jacket,Male,Jacket,Brown,35-45,Autumn,67.97,Denim,457,3.0,ZARA,10
+Beach Shirt,Female,Jeans,Beige,25-35,Winter,131.65,Wool,424,4.4,ZARA,20
+Blouse,Male,Jacket,White,35-45,Summer,60.66,Denim,453,3.4,ZARA,15
+Heels,Male,Jacket,White,18-24,Autumn,129.26,Cotton,189,3.3,ZARA,10
+Beach Shirt,Male,Dress,White,18-24,Winter,100.13,Wool,180,3.5,ZARA,0
+Biker Jacket,Female,Blouse,Beige,25-35,Winter,141.05,Synthetic,54,4.2,ZARA,5
+Chino Shorts,Male,Shorts,Brown,25-35,Spring,99.37,Denim,170,4.5,ZARA,10
+Chino Shorts,Female,Blouse,Brown,35-45,Spring,54.62,Viscose,495,4.1,ZARA,15
+Business Shirt,Female,Dress,Beige,18-24,Autumn,83.37,Wool,380,3.7,ZARA,0
+Business Shirt,Male,Jacket,Beige,18-24,Summer,24.41,Wool,359,3.1,ZARA,10
+Pattern Skirt,Female,Shirt,White,18-24,Autumn,29.66,Cotton,257,3.7,ZARA,5
+Chino Shorts,Female,Jeans,Beige,35-45,Winter,69.76,Synthetic,484,4.1,ZARA,5
+Beach Shirt,Female,Jacket,Beige,25-35,Winter,56.5,Synthetic,265,3.6,ZARA,20
+Summer Dress,Male,Shorts,Yellow,25-35,Winter,105.41,Denim,479,4.9,ZARA,20
+Pattern Skirt,Male,Skirt,White,25-35,Winter,101.63,Cotton Blend,357,3.1,ZARA,20
+Beach Shirt,Male,Jacket,Sky Blue,18-24,Summer,43.44,Denim,304,4.7,ZARA,0
+Casual Jeans,Female,Jacket,Yellow,25-35,Winter,72.4,Denim,149,4.6,ZARA,10
+Biker Jacket,Male,Blouse,Sky Blue,25-35,Spring,129.2,Wool,373,3.4,ZARA,10
+Blouse,Male,Shirt,Yellow,35-45,Autumn,141.73,Denim,148,4.4,ZARA,15
+Biker Jacket,Male,Dress,Yellow,18-24,Winter,60.77,Denim,238,3.8,ZARA,15
+Business Shirt,Female,Jacket,Yellow,35-45,All,149.66,Wool,463,3.8,ZARA,10
+Heels,Male,Shirt,White,18-24,Autumn,63.33,Leather,381,4.6,ZARA,15
+Pattern Skirt,Male,Shorts,Yellow,25-35,Summer,149.32,Leather,187,3.1,ZARA,0
+Biker Jacket,Female,Blouse,Yellow,35-45,Spring,83.69,Viscose,123,3.7,ZARA,10
+Casual Jeans,Female,Blouse,White,18-24,All,27.1,Viscose,492,4.7,ZARA,10
+Business Shirt,Female,Skirt,White,35-45,Winter,142.69,Wool,79,3.4,ZARA,15
+Biker Jacket,Male,Blouse,White,35-45,Winter,146.88,Denim,244,4.7,ZARA,0
+Beach Shirt,Male,Dress,Beige,35-45,Winter,94.28,Denim,324,4.7,ZARA,15
+Chino Shorts,Female,Jacket,Brown,25-35,Summer,31.7,Wool,132,4.2,ZARA,15
+Summer Dress,Female,Jeans,White,25-35,Winter,86.74,Denim,326,3.6,ZARA,15
+Chino Shorts,Male,Shirt,Beige,25-35,All,39.6,Synthetic,125,3.6,ZARA,5
+Wool Jacket,Male,Shoes,Beige,35-45,Summer,71.08,Denim,165,3.5,ZARA,0
+Biker Jacket,Male,Jacket,Brown,18-24,Winter,25.48,Denim,326,3.8,ZARA,15
+Wool Jacket,Male,Shoes,Brown,35-45,Summer,46.26,Leather,161,3.4,ZARA,0
+Casual Jeans,Male,Blouse,Beige,35-45,Spring,30.53,Cotton Blend,264,4.5,ZARA,20
+Biker Jacket,Female,Shoes,White,25-35,All,51.07,Cotton,284,3.7,ZARA,15
+Heels,Male,Skirt,White,35-45,Winter,85.57,Denim,147,3.3,ZARA,0
+Summer Dress,Male,Skirt,Brown,18-24,Spring,118.82,Wool,301,3.3,ZARA,5
+Wool Jacket,Female,Skirt,Beige,35-45,Spring,68.28,Cotton Blend,227,4.4,ZARA,5
+Blouse,Female,Dress,Brown,25-35,All,28.41,Wool,91,4.4,ZARA,0
+Summer Dress,Female,Shorts,White,35-45,Winter,98.59,Denim,268,3.2,ZARA,5
+Blouse,Male,Blouse,White,35-45,Spring,76.86,Leather,323,4.7,ZARA,10
+Blouse,Male,Shoes,Brown,25-35,All,104.73,Viscose,427,4.0,ZARA,5
+Summer Dress,Female,Jeans,Brown,18-24,Summer,64.05,Denim,456,4.5,ZARA,10
+Chino Shorts,Male,Shoes,Beige,25-35,All,114.92,Synthetic,200,3.4,ZARA,5
+Summer Dress,Male,Blouse,Beige,35-45,Spring,77.11,Cotton,170,4.1,ZARA,15
+Wool Jacket,Female,Blouse,Beige,25-35,Spring,102.63,Denim,420,3.7,ZARA,20
+Heels,Male,Skirt,Brown,35-45,Winter,47.32,Leather,100,3.7,ZARA,10
+Wool Jacket,Female,Shirt,Beige,25-35,Spring,49.04,Viscose,126,4.5,ZARA,10
+Summer Dress,Male,Shirt,Brown,18-24,Spring,108.82,Cotton,107,4.8,ZARA,15
+Business Shirt,Male,Blouse,Beige,18-24,Winter,108.97,Cotton Blend,176,4.2,ZARA,15
+Casual Jeans,Male,Skirt,Brown,25-35,All,134.63,Denim,486,3.7,ZARA,10
+Pattern Skirt,Female,Shoes,Beige,18-24,All,51.73,Cotton,86,3.1,ZARA,5
+Wool Jacket,Female,Blouse,White,35-45,Winter,108.6,Cotton,288,3.9,ZARA,0
+Biker Jacket,Male,Shirt,White,35-45,Winter,80.38,Synthetic,200,3.9,ZARA,5
+Blouse,Female,Dress,Beige,18-24,Summer,149.88,Viscose,73,3.9,ZARA,5
+Wool Jacket,Male,Jeans,Brown,18-24,Summer,47.18,Cotton Blend,225,4.1,ZARA,15
+Casual Jeans,Female,Skirt,Orange,35-45,Summer,31.9,Viscose,418,3.5,ZARA,10
+Heels,Male,Skirt,Orange,25-35,Summer,79.23,Synthetic,195,3.7,ZARA,0
+Blouse,Female,Shoes,Orange,18-24,All,94.56,Synthetic,396,3.6,ZARA,20
+Heels,Male,Dress,Orange,25-35,Summer,89.52,Cotton,388,3.7,ZARA,5
+Wool Jacket,Female,Skirt,Black,35-45,All,65.11,Wool,184,3.4,ZARA,0
+Beach Shirt,Female,Shorts,Black,35-45,Spring,70.36,Viscose,476,3.7,ZARA,20
+Chino Shorts,Female,Jeans,Orange,18-24,All,92.35,Viscose,273,4.3,ZARA,5
+Beach Shirt,Female,Shorts,Black,35-45,Summer,120.04,Cotton,354,3.0,ZARA,5
+Beach Shirt,Male,Blouse,Black,18-24,All,37.23,Synthetic,462,3.8,ZARA,20
+Business Shirt,Female,Shirt,Orange,25-35,Winter,76.22,Cotton,248,4.7,ZARA,10
+Summer Dress,Female,Skirt,Black,25-35,Autumn,63.49,Viscose,96,4.1,ZARA,5
+Chino Shorts,Female,Jeans,White,18-24,All,113.19,Wool,386,3.2,ZARA,0
+Beach Shirt,Male,Shirt,White,35-45,Autumn,138.78,Viscose,427,3.3,ZARA,15
+Business Shirt,Male,Shoes,White,18-24,Winter,75.58,Leather,287,3.8,ZARA,20
+Blouse,Male,Shirt,Navy Blue,25-35,Winter,36.28,Viscose,303,3.0,ZARA,5
+Chino Shorts,Male,Jacket,Grey,25-35,Spring,139.63,Denim,283,3.6,ZARA,0
+Pattern Skirt,Female,Shoes,Navy Blue,25-35,Summer,143.09,Synthetic,291,4.3,ZARA,5
+Casual Jeans,Female,Shoes,Grey,25-35,Winter,68.97,Viscose,221,4.5,ZARA,0
+Wool Jacket,Female,Jacket,Navy Blue,35-45,Autumn,45.5,Viscose,69,3.5,ZARA,15
+Biker Jacket,Male,Skirt,White,35-45,Spring,128.01,Wool,461,3.6,ZARA,10
+Heels,Female,Jacket,Navy Blue,25-35,All,99.84,Cotton,207,4.1,ZARA,20
+Blouse,Male,Shirt,Grey,35-45,Spring,111.34,Viscose,103,4.3,ZARA,10
+Summer Dress,Female,Skirt,Red,25-35,Summer,63.78,Viscose,117,4.7,ZARA,20
+Summer Dress,Male,Shoes,White,18-24,Autumn,86.36,Wool,223,4.6,ZARA,20
+Chino Shorts,Male,Shorts,White,35-45,All,140.75,Leather,113,4.9,ZARA,15
+Beach Shirt,Male,Skirt,Green,18-24,Autumn,120.84,Leather,348,4.1,ZARA,10
+Business Shirt,Female,Dress,Red,18-24,Autumn,48.85,Viscose,178,4.5,ZARA,10
+Summer Dress,Male,Jeans,Green,18-24,All,35.1,Synthetic,289,3.5,ZARA,5
+Casual Jeans,Female,Skirt,White,25-35,Spring,143.13,Cotton,496,4.6,ZARA,10
+Beach Shirt,Male,Shorts,Red,35-45,Spring,69.51,Cotton Blend,210,4.9,ZARA,15
+Chino Shorts,Female,Shoes,Red,25-35,Spring,35.9,Wool,452,3.7,ZARA,10
+Casual Jeans,Male,Shoes,Red,18-24,Autumn,52.21,Wool,51,4.8,ZARA,20
+Pattern Skirt,Male,Jacket,Green,25-35,Winter,45.36,Wool,493,4.1,ZARA,15
+Heels,Female,Jeans,White,18-24,Winter,56.45,Synthetic,306,4.5,ZARA,0
+Heels,Male,Jeans,White,25-35,Autumn,126.66,Cotton Blend,378,4.3,ZARA,5
+Biker Jacket,Male,Shirt,White,35-45,Spring,121.99,Cotton,247,4.5,ZARA,15
+Heels,Female,Shoes,Beige,35-45,Spring,107.52,Cotton Blend,302,3.0,ZARA,20
+Blouse,Female,Shirt,Beige,25-35,Summer,37.61,Cotton Blend,374,3.4,ZARA,10
+Wool Jacket,Male,Shoes,White,35-45,All,108.28,Viscose,415,4.9,ZARA,0
+Chino Shorts,Male,Blouse,Beige,35-45,Autumn,35.92,Synthetic,77,3.6,ZARA,5
+Chino Shorts,Female,Shirt,Brown,18-24,Autumn,116.35,Leather,134,4.1,ZARA,5
+Blouse,Female,Jeans,Beige,35-45,Spring,109.52,Leather,329,3.0,ZARA,0
+Blouse,Male,Skirt,Brown,18-24,Summer,86.91,Leather,292,4.3,ZARA,15
+Casual Jeans,Female,Jeans,White,18-24,Winter,142.34,Synthetic,111,4.5,ZARA,15
+Blouse,Male,Dress,Red,35-45,All,48.98,Synthetic,450,4.0,ZARA,10
+Blouse,Female,Shoes,Red,25-35,All,71.53,Denim,443,4.2,ZARA,15
+Pattern Skirt,Male,Dress,Red,25-35,Winter,142.33,Cotton Blend,265,3.3,ZARA,5
+Casual Jeans,Male,Shirt,Red,18-24,Summer,141.78,Leather,432,4.0,ZARA,20
+Business Shirt,Female,Jeans,Pink,18-24,Spring,35.07,Wool,92,3.9,ZARA,10
+Wool Jacket,Female,Dress,Red,35-45,Spring,142.39,Leather,321,4.1,ZARA,0
+Blouse,Male,Shoes,Pink,25-35,Summer,87.16,Cotton,250,3.7,ZARA,15
+Business Shirt,Female,Dress,Red,18-24,Spring,21.78,Cotton,296,3.9,ZARA,0
+Business Shirt,Male,Skirt,Pink,18-24,All,23.69,Denim,242,3.8,ZARA,5
+Summer Dress,Male,Shoes,Pink,25-35,Winter,50.91,Viscose,269,3.1,ZARA,5
+Biker Jacket,Female,Blouse,Pink,18-24,Spring,24.05,Viscose,229,4.7,ZARA,0
+Pattern Skirt,Female,Shorts,White,35-45,Winter,104.07,Cotton Blend,159,4.5,ZARA,0
+Wool Jacket,Male,Shoes,White,18-24,All,24.14,Synthetic,223,3.7,ZARA,5
+Blouse,Female,Dress,Brown,35-45,Autumn,102.25,Viscose,152,4.0,ZARA,10
+Casual Jeans,Female,Jacket,Beige,18-24,All,71.42,Cotton Blend,378,3.3,ZARA,5
+Blouse,Female,Dress,Brown,35-45,Summer,136.57,Viscose,356,3.5,ZARA,5
+Beach Shirt,Male,Dress,Beige,18-24,Spring,53.92,Denim,149,4.8,ZARA,5
+Casual Jeans,Female,Shorts,Beige,25-35,Summer,121.05,Cotton,496,4.9,ZARA,20
+Business Shirt,Male,Skirt,Brown,35-45,Autumn,22.68,Viscose,492,4.3,ZARA,5
+Business Shirt,Female,Shorts,Brown,25-35,Spring,64.66,Denim,194,3.8,ZARA,10
+Wool Jacket,Female,Jeans,White,35-45,Winter,146.69,Synthetic,91,3.7,ZARA,5
+Wool Jacket,Male,Shorts,Brown,25-35,All,44.77,Denim,238,3.1,ZARA,20
+Blouse,Male,Dress,Brown,18-24,Summer,41.85,Denim,283,3.7,ZARA,5
+Wool Jacket,Male,Shoes,Beige,35-45,Spring,62.0,Leather,208,4.7,ZARA,15
+Wool Jacket,Male,Jeans,Brown,35-45,All,32.28,Cotton Blend,100,3.8,ZARA,20
+Wool Jacket,Male,Shoes,White,25-35,Spring,101.58,Leather,124,4.3,ZARA,0
+Summer Dress,Male,Shorts,White,18-24,All,136.48,Synthetic,259,4.3,ZARA,10
+Business Shirt,Male,Blouse,White,25-35,Autumn,142.75,Wool,272,3.7,ZARA,0
+Chino Shorts,Female,Jacket,Beige,35-45,All,147.98,Leather,161,4.4,ZARA,10
+Casual Jeans,Male,Blouse,White,25-35,Winter,72.86,Viscose,160,4.0,ZARA,20
+Beach Shirt,Female,Skirt,Beige,35-45,Spring,61.82,Wool,205,3.6,ZARA,20
+Beach Shirt,Male,Skirt,Beige,25-35,All,45.03,Cotton,152,5.0,ZARA,10
+Beach Shirt,Male,Shorts,White,18-24,Summer,130.36,Denim,317,4.7,ZARA,5
+Biker Jacket,Male,Shorts,White,25-35,Autumn,33.05,Cotton,461,4.7,ZARA,10
+Heels,Female,Shoes,White,18-24,Summer,109.11,Denim,70,4.3,ZARA,10
+Beach Shirt,Male,Shoes,Beige,25-35,Autumn,64.91,Viscose,311,3.9,ZARA,10
+Business Shirt,Male,Shoes,Brown,35-45,All,101.08,Cotton,387,3.0,ZARA,0
+Pattern Skirt,Male,Shoes,Brown,35-45,Autumn,119.61,Denim,399,4.1,ZARA,15
+Casual Jeans,Female,Skirt,Brown,25-35,Winter,36.91,Leather,135,4.9,ZARA,20
+Beach Shirt,Female,Skirt,Beige,18-24,All,104.62,Leather,375,4.4,ZARA,20
+Beach Shirt,Female,Blouse,White,18-24,Autumn,143.73,Cotton,72,4.4,ZARA,5
+Biker Jacket,Male,Shorts,Beige,35-45,Spring,69.04,Wool,500,4.1,ZARA,5
+Chino Shorts,Male,Shorts,Beige,25-35,Autumn,29.9,Cotton,155,3.5,ZARA,20
+Wool Jacket,Male,Shoes,Brown,35-45,All,107.14,Leather,440,4.7,ZARA,20
+Blouse,Female,Skirt,White,25-35,All,130.49,Wool,367,4.3,ZARA,20
+Casual Jeans,Female,Dress,Sky Blue,25-35,All,86.09,Cotton Blend,279,3.1,ZARA,5
+Summer Dress,Male,Shorts,Yellow,25-35,Summer,123.72,Leather,301,4.7,ZARA,0
+Summer Dress,Female,Shirt,Yellow,35-45,Autumn,28.68,Wool,130,3.5,ZARA,5
+Casual Jeans,Female,Jacket,White,25-35,Winter,69.4,Cotton Blend,246,4.8,ZARA,5
+Pattern Skirt,Female,Shorts,White,18-24,Summer,80.94,Viscose,211,3.7,ZARA,20
+Blouse,Male,Skirt,Sky Blue,18-24,Winter,52.0,Leather,460,4.1,ZARA,20
+Summer Dress,Female,Blouse,Sky Blue,18-24,Winter,43.52,Cotton Blend,314,3.5,ZARA,10
+Pattern Skirt,Male,Shorts,Yellow,25-35,Autumn,102.06,Cotton Blend,93,4.0,ZARA,20
+Beach Shirt,Female,Dress,Yellow,25-35,Winter,108.69,Wool,186,3.6,ZARA,20
+Biker Jacket,Male,Shirt,Sky Blue,35-45,Summer,40.57,Viscose,51,4.3,ZARA,5
+Blouse,Male,Shorts,Brown,35-45,Winter,60.46,Leather,391,4.0,ZARA,15
+Chino Shorts,Male,Dress,White,35-45,Spring,96.35,Wool,84,4.1,ZARA,20
+Wool Jacket,Female,Dress,Beige,18-24,All,133.45,Cotton Blend,318,3.6,ZARA,10
+Blouse,Female,Shoes,Beige,18-24,Spring,65.43,Cotton,387,3.6,ZARA,20
+Chino Shorts,Female,Blouse,Beige,18-24,Winter,121.46,Cotton Blend,469,4.2,ZARA,5
+Heels,Male,Blouse,Beige,18-24,Winter,88.88,Leather,440,4.2,ZARA,10
+Summer Dress,Male,Shorts,Brown,35-45,All,55.97,Leather,68,4.8,ZARA,0
+Heels,Male,Jeans,Beige,25-35,Winter,94.32,Cotton,73,4.6,ZARA,5
+Summer Dress,Male,Blouse,Brown,18-24,Winter,100.06,Leather,165,4.8,ZARA,5
+Biker Jacket,Female,Shoes,White,18-24,Winter,35.77,Wool,137,3.2,ZARA,0
+Summer Dress,Female,Jeans,White,18-24,Winter,51.94,Viscose,471,4.3,ZARA,10
+Summer Dress,Male,Jacket,White,25-35,Spring,23.55,Denim,161,3.7,ZARA,10
+Chino Shorts,Female,Dress,Beige,25-35,Winter,131.66,Cotton Blend,360,4.5,ZARA,10
+Summer Dress,Male,Jeans,Beige,35-45,Autumn,111.79,Denim,426,3.6,ZARA,10
+Business Shirt,Female,Skirt,Brown,35-45,Autumn,59.12,Synthetic,88,4.3,ZARA,10
+Beach Shirt,Female,Jacket,Brown,35-45,All,105.67,Viscose,353,4.1,ZARA,15
+Beach Shirt,Female,Shirt,Beige,25-35,All,69.63,Wool,118,5.0,ZARA,5
+Chino Shorts,Male,Skirt,Brown,25-35,All,127.66,Cotton,338,3.7,ZARA,20
+Wool Jacket,Female,Jeans,White,25-35,Spring,99.16,Cotton,232,3.1,ZARA,15
+Casual Jeans,Male,Skirt,Beige,18-24,Winter,44.57,Cotton,431,4.0,ZARA,5
+Summer Dress,Male,Dress,White,25-35,All,110.99,Cotton Blend,351,3.9,ZARA,15
+Casual Jeans,Female,Shorts,White,25-35,All,54.68,Wool,394,4.5,ZARA,20
+Summer Dress,Male,Blouse,Brown,18-24,Winter,82.85,Synthetic,472,4.4,ZARA,20
+Beach Shirt,Female,Shoes,White,35-45,Winter,46.49,Wool,445,4.5,ZARA,15
+Heels,Female,Shirt,Brown,25-35,All,47.98,Wool,59,4.7,ZARA,10
+Beach Shirt,Female,Dress,Beige,25-35,Spring,147.19,Cotton Blend,90,4.1,ZARA,0
+Beach Shirt,Female,Shorts,Beige,25-35,Autumn,30.27,Viscose,494,4.7,ZARA,0
+Blouse,Female,Shirt,Brown,35-45,Winter,146.12,Cotton Blend,122,3.9,ZARA,15
+Wool Jacket,Female,Skirt,Brown,35-45,Autumn,62.65,Cotton Blend,80,4.4,ZARA,0
+Heels,Female,Shoes,Beige,35-45,Winter,67.88,Wool,58,3.8,ZARA,5
+Beach Shirt,Female,Shirt,Brown,35-45,Spring,61.23,Synthetic,363,4.7,ZARA,5
+Casual Jeans,Female,Shorts,White,18-24,Autumn,61.31,Leather,150,3.6,ZARA,5
+Wool Jacket,Female,Skirt,Beige,35-45,Summer,137.54,Cotton Blend,167,3.5,ZARA,10
+Biker Jacket,Male,Jeans,Black,35-45,Spring,121.56,Leather,318,4.6,ZARA,20
+Beach Shirt,Male,Jeans,Orange,18-24,Spring,123.71,Cotton Blend,207,4.7,ZARA,5
+Biker Jacket,Male,Shoes,Black,18-24,Spring,71.62,Cotton,274,4.4,ZARA,0
+Wool Jacket,Female,Jeans,Orange,25-35,Autumn,20.8,Denim,399,3.5,ZARA,10
+Wool Jacket,Female,Jacket,Orange,35-45,Winter,31.9,Cotton Blend,427,4.7,ZARA,20
+Pattern Skirt,Male,Jacket,Orange,18-24,Autumn,48.41,Denim,395,4.6,ZARA,20
+Wool Jacket,Female,Dress,Black,18-24,All,127.58,Wool,153,3.7,ZARA,15
+Casual Jeans,Female,Blouse,Orange,35-45,Autumn,144.05,Wool,176,4.8,ZARA,20
+Summer Dress,Female,Shoes,Black,18-24,Autumn,86.77,Cotton Blend,400,3.6,ZARA,15
+Pattern Skirt,Male,Dress,Orange,18-24,Winter,45.47,Viscose,314,4.2,ZARA,10
+Biker Jacket,Male,Shoes,Black,18-24,Winter,39.62,Denim,376,4.2,ZARA,20
+Chino Shorts,Male,Skirt,Navy Blue,18-24,Summer,36.23,Cotton Blend,207,4.0,ZARA,15
+Wool Jacket,Female,Jeans,White,25-35,Winter,53.92,Denim,57,3.6,ZARA,20
+Biker Jacket,Female,Jacket,Grey,18-24,Spring,59.72,Leather,123,3.5,ZARA,20
+Beach Shirt,Male,Jacket,White,18-24,Summer,62.38,Denim,65,3.8,ZARA,10
+Wool Jacket,Female,Skirt,White,18-24,Autumn,59.0,Cotton,282,3.1,ZARA,15
+Blouse,Female,Skirt,Grey,18-24,Autumn,142.85,Wool,421,3.4,ZARA,20
+Blouse,Male,Shorts,Grey,35-45,Autumn,123.73,Wool,433,4.2,ZARA,15
+Biker Jacket,Male,Jacket,White,25-35,Autumn,145.27,Synthetic,230,3.5,ZARA,15
+Wool Jacket,Male,Dress,White,18-24,Winter,127.76,Cotton Blend,58,4.3,ZARA,10
+Business Shirt,Female,Shoes,White,18-24,Spring,129.36,Wool,95,3.5,ZARA,10
+Wool Jacket,Male,Jeans,Navy Blue,25-35,Autumn,49.67,Viscose,205,4.7,ZARA,15
+Blouse,Female,Jacket,White,35-45,Spring,140.89,Cotton,372,3.8,ZARA,5
+Heels,Female,Shorts,Red,18-24,Spring,25.76,Synthetic,227,4.2,ZARA,5
+Wool Jacket,Male,Dress,Red,25-35,Summer,129.68,Leather,254,4.9,ZARA,5
+Heels,Male,Blouse,Green,35-45,Autumn,126.46,Synthetic,69,4.5,ZARA,15
+Chino Shorts,Female,Blouse,Green,25-35,Winter,27.21,Denim,172,5.0,ZARA,10
+Beach Shirt,Male,Skirt,Red,25-35,Winter,64.57,Denim,340,3.8,ZARA,5
+Wool Jacket,Male,Shoes,White,35-45,Winter,134.46,Cotton,368,5.0,ZARA,5
+Casual Jeans,Female,Shirt,Red,35-45,Autumn,43.77,Wool,453,3.3,ZARA,15
+Summer Dress,Female,Skirt,Green,35-45,All,44.2,Denim,249,3.8,ZARA,5
+Casual Jeans,Male,Skirt,Red,35-45,Autumn,75.24,Denim,308,3.5,ZARA,15
+Heels,Female,Dress,Red,35-45,Spring,135.16,Cotton Blend,247,3.9,ZARA,15
+Blouse,Female,Shirt,White,18-24,All,78.91,Denim,405,4.5,ZARA,20
+Casual Jeans,Female,Skirt,Beige,25-35,Winter,132.57,Cotton Blend,376,3.9,ZARA,20
+Pattern Skirt,Female,Blouse,Beige,25-35,Autumn,122.75,Wool,148,4.8,ZARA,20
+Wool Jacket,Female,Dress,White,18-24,Winter,90.65,Synthetic,96,4.7,ZARA,0
+Heels,Male,Shirt,Beige,18-24,Autumn,44.19,Cotton,123,4.1,ZARA,20
+Casual Jeans,Female,Skirt,Brown,35-45,Winter,105.94,Wool,215,3.5,ZARA,20
+Beach Shirt,Male,Skirt,White,35-45,Winter,71.01,Denim,429,4.6,ZARA,0
+Wool Jacket,Female,Jeans,Brown,35-45,Spring,140.88,Synthetic,78,3.9,ZARA,10
+Casual Jeans,Male,Blouse,Brown,35-45,All,41.79,Cotton Blend,317,3.1,ZARA,10
+Pattern Skirt,Female,Shoes,White,35-45,Summer,119.13,Viscose,479,4.4,ZARA,15
+Pattern Skirt,Female,Shirt,Beige,35-45,Autumn,97.99,Wool,233,3.5,ZARA,15
+Beach Shirt,Male,Dress,Red,25-35,All,51.45,Leather,90,4.3,ZARA,15
+Beach Shirt,Male,Shorts,Red,18-24,Spring,37.12,Cotton,83,4.8,ZARA,20
+Summer Dress,Female,Jeans,Red,35-45,Summer,60.86,Cotton Blend,251,3.8,ZARA,20
+Business Shirt,Female,Dress,Red,25-35,All,47.82,Leather,400,3.0,ZARA,15
+Blouse,Female,Jeans,Red,25-35,Autumn,23.65,Denim,299,4.0,ZARA,15
+Casual Jeans,Female,Dress,Pink,35-45,All,21.81,Leather,235,3.6,ZARA,10
+Biker Jacket,Male,Dress,Pink,18-24,Spring,85.24,Denim,115,4.4,ZARA,20
+Business Shirt,Female,Dress,Red,35-45,Autumn,97.55,Wool,184,4.9,ZARA,15
+Casual Jeans,Male,Shorts,Red,25-35,Summer,74.16,Cotton Blend,347,4.3,ZARA,5
+Summer Dress,Female,Jacket,Red,25-35,Spring,65.22,Wool,52,3.8,ZARA,20
+Business Shirt,Female,Jeans,Red,25-35,All,123.63,Viscose,354,4.7,ZARA,5
+Wool Jacket,Female,Blouse,Beige,18-24,Autumn,25.22,Denim,335,4.8,ZARA,10
+Wool Jacket,Female,Skirt,Beige,35-45,Spring,139.57,Denim,207,4.1,ZARA,0
+Beach Shirt,Female,Jeans,Beige,35-45,Autumn,52.77,Wool,212,3.5,ZARA,20
+Business Shirt,Female,Shoes,White,35-45,Spring,83.44,Viscose,298,4.0,ZARA,15
+Business Shirt,Male,Jacket,Beige,25-35,Spring,123.4,Cotton Blend,367,3.8,ZARA,15
+Beach Shirt,Male,Shirt,White,35-45,All,148.9,Cotton Blend,366,4.1,ZARA,0
+Casual Jeans,Female,Shoes,Beige,18-24,Winter,73.63,Leather,346,4.2,ZARA,15
+Chino Shorts,Male,Skirt,White,18-24,All,52.52,Cotton,465,3.4,ZARA,5
+Blouse,Male,Skirt,Beige,25-35,Summer,134.33,Wool,309,3.2,ZARA,10
+Pattern Skirt,Female,Jacket,Beige,35-45,Summer,82.69,Wool,164,4.2,ZARA,20
+Blouse,Male,Jeans,White,25-35,Spring,137.67,Synthetic,416,3.9,ZARA,10
+Chino Shorts,Female,Jacket,Brown,25-35,Spring,149.93,Cotton,130,3.6,ZARA,20
+Summer Dress,Female,Dress,Beige,35-45,Spring,66.92,Cotton,276,3.9,ZARA,5
+Heels,Female,Blouse,Brown,18-24,All,64.85,Synthetic,138,4.4,ZARA,10
+Heels,Female,Blouse,Beige,18-24,All,123.36,Cotton,423,3.1,ZARA,5
+Business Shirt,Male,Shirt,Beige,25-35,Autumn,90.65,Cotton Blend,472,4.7,ZARA,20
+Blouse,Male,Shorts,Brown,35-45,Winter,98.37,Cotton Blend,190,4.1,ZARA,5
+Business Shirt,Male,Shoes,White,35-45,All,54.18,Denim,464,3.6,ZARA,20
+Business Shirt,Male,Dress,Beige,18-24,Spring,101.3,Synthetic,73,4.2,ZARA,5
+Summer Dress,Male,Dress,Beige,18-24,Winter,79.6,Cotton Blend,53,4.1,ZARA,0
+Blouse,Female,Shorts,Beige,35-45,Summer,142.18,Denim,361,4.1,ZARA,0
+Chino Shorts,Female,Shoes,Beige,18-24,Spring,66.6,Leather,195,4.3,ZARA,15
+Casual Jeans,Female,Jeans,White,35-45,Spring,41.96,Denim,442,4.2,ZARA,15
+Wool Jacket,Female,Skirt,Brown,35-45,Summer,20.47,Viscose,69,3.9,ZARA,20
+Business Shirt,Female,Skirt,White,25-35,Summer,129.27,Synthetic,348,4.3,ZARA,20
+Pattern Skirt,Male,Shoes,White,18-24,Summer,122.92,Synthetic,344,3.3,ZARA,20
+Business Shirt,Female,Shirt,Beige,18-24,All,84.11,Cotton,279,4.8,ZARA,5
+Chino Shorts,Male,Blouse,White,25-35,Autumn,79.31,Cotton Blend,482,4.2,ZARA,10
+Summer Dress,Female,Dress,Brown,18-24,Autumn,26.16,Cotton Blend,382,4.7,ZARA,0
+Chino Shorts,Male,Jacket,White,18-24,Winter,66.44,Denim,135,4.0,ZARA,20
+Chino Shorts,Female,Shorts,Brown,35-45,All,29.8,Cotton Blend,381,4.5,ZARA,20
+Pattern Skirt,Female,Blouse,Brown,18-24,Winter,47.07,Synthetic,221,3.9,ZARA,20
+Summer Dress,Male,Jacket,Brown,25-35,Autumn,116.55,Leather,202,3.5,ZARA,15
+Blouse,Male,Shorts,Yellow,35-45,Summer,35.78,Viscose,140,4.6,ZARA,20
+Beach Shirt,Female,Shirt,Sky Blue,25-35,Spring,99.43,Synthetic,349,3.8,ZARA,15
+Summer Dress,Female,Blouse,Sky Blue,18-24,Spring,145.08,Synthetic,423,4.4,ZARA,20
+Chino Shorts,Female,Jeans,Yellow,35-45,Autumn,34.62,Cotton Blend,351,4.9,ZARA,15
+Chino Shorts,Male,Blouse,White,25-35,Spring,109.5,Viscose,269,4.8,ZARA,0
+Pattern Skirt,Female,Dress,Sky Blue,35-45,Spring,64.8,Leather,230,3.4,ZARA,0
+Chino Shorts,Female,Jeans,White,18-24,Winter,99.08,Cotton Blend,488,4.0,ZARA,20
+Pattern Skirt,Female,Jeans,White,18-24,Spring,30.66,Viscose,172,5.0,ZARA,15
+Casual Jeans,Male,Jeans,Yellow,18-24,All,40.83,Denim,50,3.8,ZARA,5
+Blouse,Female,Jeans,Yellow,25-35,Autumn,132.92,Cotton Blend,51,3.5,ZARA,0
+Wool Jacket,Female,Jeans,Sky Blue,18-24,Winter,82.57,Denim,206,3.5,ZARA,15
+Biker Jacket,Male,Shirt,White,18-24,Winter,62.53,Synthetic,404,4.4,ZARA,20
+Summer Dress,Male,Blouse,Beige,18-24,Winter,125.06,Cotton Blend,79,4.4,ZARA,10
+Heels,Male,Shorts,Brown,25-35,Autumn,121.47,Cotton,371,3.4,ZARA,15
+Biker Jacket,Male,Skirt,Brown,18-24,All,74.01,Cotton,396,3.1,ZARA,0
+Heels,Male,Skirt,Brown,18-24,Winter,108.09,Viscose,453,4.2,ZARA,5
+Summer Dress,Male,Dress,Beige,35-45,Spring,71.1,Cotton,137,3.6,ZARA,20
+Biker Jacket,Female,Jacket,Brown,18-24,All,93.03,Denim,202,3.9,ZARA,5
+Summer Dress,Female,Jeans,White,35-45,Winter,22.22,Leather,136,3.2,ZARA,5
+Business Shirt,Male,Shirt,Beige,18-24,Spring,58.79,Synthetic,440,3.2,ZARA,10
+Heels,Female,Dress,Brown,18-24,Spring,132.53,Leather,184,4.3,ZARA,5
+Chino Shorts,Female,Jeans,White,35-45,All,99.2,Cotton,242,4.2,ZARA,0
+Business Shirt,Female,Jacket,Beige,18-24,Winter,110.22,Denim,435,4.8,ZARA,15
+Casual Jeans,Male,Shirt,Beige,18-24,Summer,74.02,Wool,432,3.2,ZARA,20
+Chino Shorts,Female,Blouse,White,18-24,All,32.0,Leather,177,3.4,ZARA,10
+Wool Jacket,Male,Shirt,Brown,18-24,Autumn,138.1,Cotton Blend,263,4.2,ZARA,15
+Chino Shorts,Male,Dress,Brown,35-45,All,116.27,Wool,128,4.3,ZARA,15
+Heels,Female,Shorts,Beige,25-35,Autumn,110.13,Denim,247,3.4,ZARA,10
+Chino Shorts,Male,Jacket,Brown,25-35,Autumn,130.9,Viscose,447,5.0,ZARA,5
+Pattern Skirt,Female,Jeans,Brown,25-35,Winter,106.93,Denim,419,3.5,ZARA,15
+Chino Shorts,Male,Jeans,Brown,18-24,All,135.47,Cotton Blend,132,4.1,ZARA,10
+Wool Jacket,Male,Shirt,Beige,35-45,Winter,78.8,Cotton,64,3.1,ZARA,5
+Wool Jacket,Female,Shorts,Beige,25-35,All,29.65,Viscose,148,4.6,ZARA,20
+Wool Jacket,Male,Shirt,White,35-45,Autumn,120.88,Synthetic,332,4.3,ZARA,20
+Casual Jeans,Male,Skirt,White,25-35,All,98.55,Denim,440,4.9,ZARA,20
+Summer Dress,Female,Shorts,Beige,18-24,Summer,92.21,Synthetic,172,3.2,ZARA,10
+Summer Dress,Female,Shorts,Beige,35-45,Summer,121.72,Wool,391,3.2,ZARA,5
+Pattern Skirt,Female,Shorts,Beige,18-24,Spring,108.21,Cotton Blend,405,3.5,ZARA,20
+Pattern Skirt,Female,Skirt,Beige,25-35,Autumn,146.25,Denim,220,3.9,ZARA,5
+Blouse,Female,Shirt,White,18-24,Winter,64.93,Wool,310,3.4,ZARA,0
+Beach Shirt,Male,Shoes,Brown,35-45,Summer,134.78,Synthetic,259,4.2,ZARA,0
+Beach Shirt,Female,Dress,Beige,35-45,Summer,76.48,Cotton,463,4.4,ZARA,15
+Summer Dress,Female,Shorts,White,18-24,All,108.44,Synthetic,298,4.3,ZARA,5
+Heels,Male,Dress,Brown,35-45,Spring,84.47,Cotton Blend,76,3.1,ZARA,15
+Beach Shirt,Female,Shoes,Orange,18-24,Autumn,87.73,Leather,429,4.3,ZARA,5
+Wool Jacket,Female,Shirt,Orange,35-45,All,142.56,Denim,109,3.9,ZARA,15
+Heels,Male,Shorts,Black,25-35,Spring,55.19,Wool,442,3.4,ZARA,10
+Pattern Skirt,Female,Shirt,Orange,25-35,All,69.87,Denim,319,4.6,ZARA,0
+Business Shirt,Male,Shirt,Black,18-24,Summer,94.24,Leather,201,4.7,ZARA,5
+Beach Shirt,Female,Shoes,Orange,35-45,All,38.17,Denim,497,3.7,ZARA,0
+Chino Shorts,Female,Shirt,Black,18-24,Winter,34.47,Cotton Blend,97,4.6,ZARA,0
+Casual Jeans,Female,Blouse,Orange,18-24,Winter,95.19,Leather,411,4.9,ZARA,10
+Biker Jacket,Male,Shirt,Orange,35-45,Spring,74.25,Denim,220,4.7,ZARA,15
+Heels,Male,Dress,Black,18-24,Winter,108.42,Wool,296,3.5,ZARA,10
+Blouse,Male,Shirt,Black,25-35,Spring,64.78,Leather,499,3.8,ZARA,5
+Biker Jacket,Male,Jacket,Navy Blue,25-35,Summer,127.76,Cotton Blend,191,4.6,ZARA,20
+Summer Dress,Female,Shoes,Navy Blue,18-24,Spring,57.45,Leather,345,4.8,ZARA,15
+Biker Jacket,Male,Shirt,Grey,18-24,Spring,106.5,Synthetic,62,3.2,ZARA,5
+Summer Dress,Female,Shirt,Navy Blue,35-45,Spring,103.44,Cotton Blend,147,4.3,ZARA,5
+Blouse,Female,Dress,White,25-35,All,35.6,Leather,176,4.4,ZARA,20
+Biker Jacket,Male,Blouse,White,18-24,Spring,81.62,Leather,316,4.8,ZARA,10
+Blouse,Male,Jeans,Grey,25-35,All,100.54,Cotton Blend,109,3.3,ZARA,5
+Pattern Skirt,Male,Blouse,Grey,35-45,Summer,123.72,Leather,234,4.7,ZARA,15
+Chino Shorts,Male,Skirt,Grey,18-24,All,147.91,Wool,90,4.5,ZARA,10
+Chino Shorts,Male,Shorts,Navy Blue,18-24,Spring,144.37,Synthetic,488,4.2,ZARA,10
+Heels,Female,Skirt,Grey,35-45,Spring,86.88,Wool,145,4.2,ZARA,20
+Summer Dress,Male,Skirt,Red,18-24,Winter,53.58,Leather,52,4.0,ZARA,5
+Summer Dress,Female,Skirt,White,18-24,All,34.03,Leather,382,3.1,ZARA,15
+Business Shirt,Male,Skirt,White,18-24,Autumn,53.93,Wool,487,4.0,ZARA,10
+Casual Jeans,Female,Blouse,White,18-24,All,100.93,Cotton,185,4.4,ZARA,10
+Business Shirt,Female,Jacket,Red,25-35,Summer,146.17,Cotton Blend,134,4.8,ZARA,0
+Chino Shorts,Female,Dress,Red,25-35,All,104.69,Wool,108,4.9,ZARA,5
+Chino Shorts,Female,Jeans,Red,35-45,Winter,134.44,Synthetic,457,3.7,ZARA,5
+Wool Jacket,Male,Jacket,White,35-45,Summer,91.87,Wool,346,3.7,ZARA,5
+Blouse,Male,Blouse,Green,25-35,Winter,80.54,Viscose,301,4.1,ZARA,15
+Blouse,Male,Shirt,Red,35-45,Summer,57.66,Cotton Blend,257,4.9,ZARA,15
+Wool Jacket,Female,Shorts,Red,35-45,Autumn,86.91,Denim,233,3.0,ZARA,10
+Heels,Male,Dress,Brown,35-45,Spring,112.68,Cotton,387,4.2,ZARA,5
+Summer Dress,Female,Shorts,Brown,35-45,Winter,138.97,Denim,242,4.2,ZARA,20
+Wool Jacket,Female,Shoes,Brown,18-24,Winter,124.67,Cotton Blend,57,4.5,ZARA,5
+Blouse,Female,Dress,Beige,18-24,Spring,56.19,Cotton Blend,125,4.5,ZARA,5
+Blouse,Male,Jacket,Brown,35-45,All,91.5,Viscose,127,4.1,ZARA,0
+Chino Shorts,Male,Shorts,Brown,25-35,All,93.4,Synthetic,233,3.3,ZARA,20
+Business Shirt,Female,Skirt,White,18-24,Spring,146.87,Cotton,215,4.5,ZARA,15
+Business Shirt,Female,Skirt,White,25-35,Summer,139.13,Denim,178,4.5,ZARA,15
+Chino Shorts,Female,Blouse,Brown,18-24,Autumn,72.96,Viscose,144,3.1,ZARA,20
+Beach Shirt,Male,Blouse,Brown,18-24,All,40.8,Viscose,297,4.7,ZARA,15
+Summer Dress,Male,Skirt,White,25-35,Autumn,34.39,Cotton Blend,69,4.0,ZARA,20
+Wool Jacket,Female,Shorts,Red,18-24,Spring,149.5,Synthetic,64,3.4,ZARA,5
+Beach Shirt,Male,Jacket,Pink,25-35,Winter,43.96,Wool,500,4.1,ZARA,20
+Summer Dress,Male,Blouse,Pink,35-45,Summer,69.66,Wool,369,4.3,ZARA,20
+Blouse,Female,Shorts,Pink,25-35,Spring,43.5,Leather,471,3.9,ZARA,20
+Pattern Skirt,Male,Shoes,Pink,25-35,All,116.24,Cotton,232,3.6,ZARA,10
+Beach Shirt,Male,Dress,Red,18-24,Summer,77.61,Leather,89,3.9,ZARA,0
+Beach Shirt,Male,Blouse,Pink,25-35,All,135.85,Wool,249,5.0,ZARA,20
+Wool Jacket,Male,Dress,Red,18-24,Winter,120.86,Leather,337,3.8,ZARA,15
+Pattern Skirt,Female,Shoes,Pink,18-24,All,28.27,Denim,352,4.5,ZARA,5
+Casual Jeans,Male,Shorts,Red,35-45,Winter,126.91,Cotton Blend,167,3.7,ZARA,20
+Heels,Female,Skirt,Pink,18-24,Winter,111.59,Cotton Blend,430,3.6,ZARA,10
+Summer Dress,Female,Skirt,Brown,25-35,Autumn,97.87,Viscose,239,4.0,ZARA,5
+Summer Dress,Female,Jacket,Brown,25-35,Summer,42.59,Cotton,140,3.9,ZARA,10
+Beach Shirt,Female,Jacket,Brown,35-45,All,135.93,Cotton,417,4.3,ZARA,15
+Chino Shorts,Female,Shoes,White,35-45,Summer,82.07,Cotton,209,4.2,ZARA,10
+Business Shirt,Female,Dress,Beige,18-24,Autumn,135.4,Denim,184,4.5,ZARA,10
+Beach Shirt,Female,Jacket,Brown,18-24,Autumn,88.69,Denim,329,4.1,ZARA,20
+Blouse,Male,Shirt,Beige,35-45,Autumn,88.43,Leather,486,5.0,ZARA,20
+Casual Jeans,Female,Shoes,Brown,18-24,Summer,66.51,Cotton Blend,296,3.2,ZARA,10
+Blouse,Male,Shirt,White,25-35,Summer,65.13,Viscose,321,4.5,ZARA,15
+Business Shirt,Male,Skirt,Beige,25-35,Spring,51.93,Denim,471,3.1,ZARA,20
+Biker Jacket,Female,Skirt,Brown,18-24,Spring,130.06,Wool,291,3.4,ZARA,15
+Beach Shirt,Male,Skirt,Beige,35-45,Autumn,104.3,Synthetic,429,4.1,ZARA,10
+Biker Jacket,Male,Blouse,White,25-35,All,140.88,Cotton,93,4.2,ZARA,15
+Chino Shorts,Female,Blouse,White,25-35,Autumn,82.62,Wool,463,3.3,ZARA,20
+Summer Dress,Male,Shoes,White,35-45,All,57.29,Viscose,106,4.9,ZARA,0
+Beach Shirt,Male,Shoes,Brown,25-35,Spring,79.07,Denim,79,3.8,ZARA,15
+Biker Jacket,Female,Blouse,Brown,25-35,Spring,138.91,Cotton Blend,500,4.9,ZARA,0
+Summer Dress,Male,Skirt,Brown,25-35,Winter,23.37,Denim,247,3.6,ZARA,5
+Casual Jeans,Female,Blouse,White,18-24,Summer,104.61,Viscose,127,4.6,ZARA,20
+Pattern Skirt,Female,Shoes,Brown,18-24,Spring,135.97,Leather,453,4.8,ZARA,20
+Summer Dress,Male,Blouse,White,35-45,Spring,119.28,Cotton Blend,89,4.2,ZARA,0
+Wool Jacket,Female,Jacket,Beige,25-35,All,113.44,Wool,149,3.3,ZARA,0
+Summer Dress,Male,Shorts,White,35-45,Summer,79.32,Cotton Blend,124,4.2,ZARA,10
+Business Shirt,Female,Shoes,Brown,25-35,All,81.76,Leather,220,4.4,ZARA,20
+Blouse,Male,Dress,White,35-45,Winter,111.33,Synthetic,258,3.3,ZARA,15
+Beach Shirt,Female,Jeans,Beige,35-45,Autumn,35.14,Cotton Blend,214,4.7,ZARA,5
+Casual Jeans,Male,Skirt,Beige,18-24,Summer,134.78,Cotton,342,3.7,ZARA,0
+Chino Shorts,Female,Jacket,Brown,35-45,Autumn,26.38,Leather,218,4.5,ZARA,10
+Business Shirt,Female,Skirt,Beige,25-35,All,79.85,Wool,126,3.6,ZARA,0
+Casual Jeans,Male,Shoes,Brown,25-35,Summer,121.54,Leather,165,3.3,ZARA,5
+Business Shirt,Female,Dress,Brown,18-24,Winter,113.01,Cotton,257,3.3,ZARA,5
+Summer Dress,Male,Shirt,White,35-45,Winter,143.95,Viscose,295,3.6,ZARA,5
+Pattern Skirt,Male,Shoes,Beige,35-45,Autumn,25.84,Denim,409,4.9,ZARA,15
+Wool Jacket,Female,Jeans,Yellow,18-24,Spring,87.19,Viscose,281,4.4,ZARA,10
+Summer Dress,Male,Jeans,Sky Blue,35-45,Autumn,85.62,Denim,269,4.9,ZARA,15
+Blouse,Female,Jeans,Sky Blue,18-24,Summer,46.24,Cotton,111,5.0,ZARA,20
+Blouse,Male,Skirt,Yellow,25-35,Summer,68.55,Denim,52,3.0,ZARA,20
+Casual Jeans,Male,Dress,White,35-45,Summer,47.61,Cotton Blend,126,3.1,ZARA,20
+Wool Jacket,Male,Shorts,Sky Blue,25-35,Winter,32.05,Leather,62,3.4,ZARA,0
+Wool Jacket,Male,Dress,Yellow,18-24,Spring,59.67,Denim,207,3.9,ZARA,0
+Beach Shirt,Female,Shirt,White,18-24,Winter,93.11,Wool,386,3.5,ZARA,0
+Casual Jeans,Male,Shoes,White,25-35,Winter,32.89,Viscose,182,3.5,ZARA,20
+Wool Jacket,Female,Dress,Sky Blue,25-35,Autumn,144.33,Synthetic,74,4.4,ZARA,20
+Heels,Male,Blouse,White,18-24,All,61.4,Leather,278,3.8,ZARA,0
+Summer Dress,Female,Jacket,Beige,25-35,Winter,67.35,Synthetic,86,3.9,ZARA,10
+Beach Shirt,Female,Skirt,Brown,18-24,Summer,67.32,Leather,382,4.4,ZARA,0
+Pattern Skirt,Male,Skirt,Beige,35-45,Spring,109.14,Cotton,329,3.4,ZARA,0
+Pattern Skirt,Female,Jacket,Beige,35-45,All,137.5,Cotton,350,3.7,ZARA,0
+Casual Jeans,Male,Jacket,White,18-24,Summer,63.96,Viscose,246,3.8,ZARA,0
+Wool Jacket,Female,Shirt,Beige,35-45,All,27.71,Denim,442,4.3,ZARA,0
+Wool Jacket,Female,Shoes,Brown,35-45,All,80.77,Denim,196,4.5,ZARA,20
+Beach Shirt,Female,Skirt,White,35-45,Autumn,105.83,Synthetic,389,4.8,ZARA,5
+Pattern Skirt,Male,Shirt,White,25-35,All,139.31,Viscose,494,4.7,ZARA,15
+Casual Jeans,Female,Blouse,White,35-45,All,144.87,Cotton,69,4.3,ZARA,20
+Summer Dress,Male,Shirt,Brown,25-35,Autumn,49.97,Cotton,127,3.9,ZARA,5
+Heels,Female,Jacket,Beige,35-45,All,60.77,Viscose,488,3.9,ZARA,10
+Biker Jacket,Female,Blouse,White,18-24,Spring,40.97,Cotton,120,4.5,ZARA,0
+Casual Jeans,Male,Skirt,Beige,18-24,All,90.99,Synthetic,110,3.7,ZARA,15
+Biker Jacket,Female,Dress,White,35-45,Summer,53.26,Synthetic,272,4.5,ZARA,5
+Beach Shirt,Male,Blouse,Brown,35-45,All,76.2,Cotton Blend,476,3.6,ZARA,20
+Casual Jeans,Male,Shorts,Beige,25-35,Autumn,116.01,Wool,465,4.6,ZARA,10
+Business Shirt,Male,Jeans,White,25-35,Autumn,42.82,Cotton,178,3.9,ZARA,15
+Business Shirt,Male,Shoes,Brown,25-35,Summer,27.73,Cotton Blend,350,5.0,ZARA,15
+Biker Jacket,Male,Shorts,Brown,25-35,All,76.45,Cotton,295,4.8,ZARA,20
+Wool Jacket,Female,Jacket,Brown,18-24,Winter,129.15,Leather,279,4.3,ZARA,20
+Chino Shorts,Female,Skirt,White,35-45,Summer,133.51,Cotton Blend,99,4.8,ZARA,10
+Beach Shirt,Female,Shoes,Beige,35-45,Autumn,84.23,Viscose,473,3.9,ZARA,5
+Casual Jeans,Male,Shoes,White,35-45,Winter,116.79,Wool,218,3.7,ZARA,5
+Blouse,Female,Blouse,White,25-35,Autumn,140.74,Denim,145,4.9,ZARA,10
+Beach Shirt,Male,Blouse,White,35-45,Winter,40.37,Cotton,299,3.7,ZARA,15
+Blouse,Female,Jacket,White,18-24,Summer,80.93,Leather,354,4.3,ZARA,20
+Blouse,Male,Shirt,Beige,18-24,Autumn,103.13,Leather,86,4.6,ZARA,15
+Wool Jacket,Female,Jeans,Brown,25-35,Autumn,81.79,Leather,232,4.5,ZARA,15
+Blouse,Male,Shorts,Beige,18-24,Summer,51.23,Viscose,50,4.9,ZARA,15
+Chino Shorts,Male,Dress,White,35-45,Spring,39.98,Leather,456,3.9,ZARA,20
+Casual Jeans,Male,Jeans,Beige,35-45,Summer,60.25,Leather,280,4.0,ZARA,5
+Beach Shirt,Female,Dress,Brown,25-35,All,51.81,Cotton Blend,289,3.6,ZARA,20
+Beach Shirt,Male,Shoes,Orange,18-24,Summer,137.75,Leather,442,4.2,ZARA,15
+Business Shirt,Female,Shorts,Black,18-24,All,119.57,Cotton,407,3.7,ZARA,0
+Chino Shorts,Male,Blouse,Orange,18-24,Summer,98.95,Wool,118,4.0,ZARA,5
+Business Shirt,Female,Jacket,Orange,25-35,Summer,40.78,Cotton Blend,139,4.1,ZARA,10
+Heels,Female,Shoes,Orange,18-24,Winter,125.03,Viscose,242,3.3,ZARA,0
+Business Shirt,Male,Skirt,Black,18-24,Autumn,70.0,Viscose,362,4.2,ZARA,5
+Biker Jacket,Female,Blouse,Black,18-24,Winter,89.95,Cotton,135,3.2,ZARA,20
+Casual Jeans,Male,Shirt,Black,35-45,Summer,50.73,Wool,405,4.7,ZARA,15
+Chino Shorts,Male,Skirt,Black,18-24,All,61.8,Wool,264,3.1,ZARA,5
+Pattern Skirt,Female,Shorts,Black,18-24,Winter,79.03,Viscose,232,4.7,ZARA,20
+Summer Dress,Male,Skirt,Orange,35-45,All,92.95,Wool,388,3.7,ZARA,0
+Beach Shirt,Female,Jacket,Navy Blue,25-35,Autumn,87.27,Cotton Blend,70,4.5,ZARA,20
+Casual Jeans,Female,Jacket,White,18-24,Winter,70.25,Viscose,389,4.1,ZARA,5
+Beach Shirt,Male,Dress,Grey,25-35,All,54.95,Leather,312,3.3,ZARA,15
+Biker Jacket,Male,Jeans,White,25-35,Winter,42.56,Leather,318,3.6,ZARA,10
+Beach Shirt,Male,Blouse,White,35-45,All,122.02,Viscose,252,4.6,ZARA,15
+Blouse,Male,Jeans,White,25-35,Summer,53.52,Leather,483,4.8,ZARA,0
+Pattern Skirt,Female,Shirt,Navy Blue,18-24,All,82.22,Leather,434,3.8,ZARA,15
+Chino Shorts,Female,Blouse,White,35-45,All,28.95,Denim,132,4.2,ZARA,15
+Beach Shirt,Female,Jacket,Grey,25-35,Summer,128.82,Viscose,55,4.1,ZARA,0
+Beach Shirt,Female,Jacket,Grey,35-45,All,71.48,Cotton,396,4.2,ZARA,20
+Heels,Female,Dress,White,18-24,Summer,24.53,Synthetic,465,4.6,ZARA,0
+Blouse,Female,Dress,Green,25-35,Winter,116.39,Cotton Blend,222,3.9,ZARA,20
+Pattern Skirt,Female,Blouse,White,18-24,All,67.61,Denim,300,4.3,ZARA,5
+Casual Jeans,Female,Jacket,Green,18-24,All,34.45,Wool,153,4.1,ZARA,15
+Chino Shorts,Female,Shirt,White,35-45,Spring,46.82,Viscose,279,4.5,ZARA,10
+Casual Jeans,Female,Jacket,White,35-45,All,68.18,Leather,214,3.4,ZARA,10
+Beach Shirt,Male,Skirt,Green,35-45,Summer,47.51,Viscose,394,4.1,ZARA,15
+Heels,Female,Dress,Green,18-24,All,82.22,Denim,371,4.5,ZARA,15
+Biker Jacket,Male,Skirt,Red,18-24,Spring,115.12,Leather,205,3.3,ZARA,15
+Business Shirt,Male,Shorts,White,18-24,Autumn,104.45,Viscose,312,3.8,ZARA,15
+Wool Jacket,Female,Jacket,Green,35-45,All,27.01,Cotton,286,3.3,ZARA,0
+Casual Jeans,Female,Jeans,Red,25-35,Autumn,62.56,Wool,157,3.1,ZARA,10
+Beach Shirt,Male,Shoes,White,18-24,Spring,78.02,Viscose,182,3.8,ZARA,20
+Casual Jeans,Male,Jacket,Beige,25-35,Summer,145.75,Cotton Blend,325,3.6,ZARA,10
+Casual Jeans,Male,Shorts,Brown,18-24,All,103.19,Denim,252,3.5,ZARA,0
+Heels,Male,Dress,White,35-45,Autumn,141.39,Viscose,52,3.6,ZARA,0
+Casual Jeans,Male,Shoes,Brown,25-35,Spring,135.59,Synthetic,295,4.6,ZARA,0
+Beach Shirt,Female,Jacket,White,25-35,Spring,23.07,Cotton Blend,162,3.8,ZARA,20
+Biker Jacket,Female,Dress,White,35-45,All,28.42,Wool,91,4.9,ZARA,0
+Heels,Female,Dress,White,35-45,Autumn,131.48,Leather,427,3.1,ZARA,0
+Blouse,Female,Shirt,Brown,25-35,Summer,99.69,Leather,491,3.4,ZARA,5
+Wool Jacket,Male,Dress,White,25-35,All,103.95,Denim,408,4.3,ZARA,15
+Summer Dress,Female,Dress,White,18-24,Spring,114.28,Cotton Blend,233,4.9,ZARA,5
+Casual Jeans,Male,Skirt,Red,35-45,Autumn,62.82,Denim,334,3.3,ZARA,0
+Summer Dress,Male,Shoes,Pink,25-35,Spring,128.43,Denim,197,4.9,ZARA,0
+Pattern Skirt,Female,Shirt,Pink,35-45,All,147.24,Leather,442,3.7,ZARA,0
+Wool Jacket,Male,Skirt,Pink,25-35,Autumn,36.51,Leather,190,4.6,ZARA,10
+Heels,Male,Blouse,Red,25-35,All,145.28,Denim,65,4.1,ZARA,5
+Pattern Skirt,Female,Shorts,Red,18-24,Winter,117.42,Wool,113,3.3,ZARA,10
+Chino Shorts,Male,Blouse,Red,25-35,Spring,79.33,Leather,407,4.1,ZARA,20
+Beach Shirt,Female,Blouse,Pink,25-35,Winter,93.1,Cotton Blend,69,3.7,ZARA,5
+Beach Shirt,Male,Jacket,Red,18-24,All,148.46,Synthetic,239,3.1,ZARA,0
+Pattern Skirt,Male,Blouse,Pink,18-24,Autumn,59.04,Denim,209,4.9,ZARA,5
+Chino Shorts,Female,Dress,Red,35-45,All,34.57,Viscose,438,3.3,ZARA,20
+Pattern Skirt,Male,Shorts,Brown,35-45,Summer,60.66,Synthetic,383,3.6,ZARA,15
+Business Shirt,Female,Shorts,Beige,18-24,Winter,138.04,Cotton,371,3.0,ZARA,20
+Heels,Female,Skirt,Beige,25-35,Autumn,50.06,Leather,481,3.9,ZARA,10
+Heels,Male,Shorts,White,35-45,Spring,76.7,Cotton Blend,63,4.9,ZARA,15
+Heels,Male,Shoes,Brown,35-45,Summer,27.74,Leather,141,3.1,ZARA,20
+Chino Shorts,Female,Shorts,White,35-45,Spring,112.99,Synthetic,241,4.7,ZARA,0
+Beach Shirt,Male,Shorts,Brown,18-24,Autumn,102.07,Cotton,191,3.3,ZARA,15
+Casual Jeans,Female,Shoes,Brown,25-35,Summer,31.71,Denim,212,4.0,ZARA,5
+Chino Shorts,Male,Dress,White,25-35,All,67.01,Denim,488,3.5,ZARA,10
+Pattern Skirt,Female,Shorts,Brown,18-24,Autumn,77.13,Cotton,306,3.2,ZARA,15
+Business Shirt,Male,Dress,Beige,25-35,Winter,50.15,Viscose,86,4.9,ZARA,20
+Wool Jacket,Male,Jeans,Beige,25-35,Spring,112.78,Synthetic,489,3.7,ZARA,5
+Beach Shirt,Female,Jeans,Brown,18-24,Spring,37.54,Synthetic,327,4.8,ZARA,5
+Heels,Female,Dress,Brown,18-24,Winter,135.3,Synthetic,490,3.0,ZARA,15
+Beach Shirt,Female,Blouse,White,35-45,Autumn,87.66,Leather,74,3.8,ZARA,10
+Pattern Skirt,Female,Blouse,Brown,25-35,Spring,141.93,Viscose,278,5.0,ZARA,10
+Summer Dress,Female,Shirt,Beige,35-45,Spring,89.14,Leather,159,3.5,ZARA,0
+Pattern Skirt,Female,Shirt,Brown,18-24,Summer,23.19,Synthetic,471,3.8,ZARA,15
+Beach Shirt,Male,Shorts,Beige,18-24,Autumn,114.03,Denim,98,4.2,ZARA,10
+Heels,Female,Blouse,White,35-45,Summer,121.19,Viscose,59,3.7,ZARA,10
+Heels,Male,Jeans,Brown,25-35,Summer,59.44,Cotton Blend,462,4.8,ZARA,15
+Blouse,Female,Skirt,White,18-24,All,96.7,Leather,52,3.6,ZARA,20
+Beach Shirt,Male,Shoes,Brown,18-24,Autumn,73.37,Viscose,144,3.2,ZARA,0
+Pattern Skirt,Male,Skirt,Beige,18-24,Autumn,21.34,Denim,282,4.7,ZARA,10
+Blouse,Male,Shirt,Brown,35-45,All,96.35,Denim,421,4.9,ZARA,20
+Biker Jacket,Male,Skirt,Brown,35-45,All,82.01,Denim,494,3.2,ZARA,0
+Biker Jacket,Male,Dress,White,18-24,Winter,73.43,Leather,178,4.5,ZARA,20
+Wool Jacket,Female,Blouse,Brown,35-45,All,21.63,Denim,64,4.0,ZARA,0
+Chino Shorts,Male,Shirt,Brown,25-35,Autumn,135.74,Synthetic,249,4.9,ZARA,15
+Blouse,Male,Skirt,Beige,35-45,Autumn,71.68,Viscose,79,4.0,ZARA,5
+Biker Jacket,Female,Dress,Brown,18-24,Autumn,60.51,Synthetic,349,4.9,ZARA,5
+Casual Jeans,Female,Jacket,Beige,18-24,Spring,126.77,Wool,69,3.6,ZARA,15
+Wool Jacket,Female,Shoes,Beige,18-24,Spring,64.52,Wool,245,3.9,ZARA,0
+Beach Shirt,Female,Blouse,Sky Blue,35-45,Spring,77.25,Leather,161,3.6,ZARA,0
+Summer Dress,Female,Skirt,White,18-24,All,41.37,Synthetic,279,3.0,ZARA,10
+Blouse,Male,Shorts,Sky Blue,35-45,All,31.55,Cotton Blend,452,3.8,ZARA,10
+Summer Dress,Male,Dress,Sky Blue,35-45,All,61.67,Denim,98,3.7,ZARA,20
+Heels,Female,Shoes,Sky Blue,25-35,Autumn,93.4,Wool,486,3.6,ZARA,5
+Biker Jacket,Male,Blouse,Yellow,18-24,Spring,111.15,Cotton,214,3.4,ZARA,20
+Summer Dress,Female,Shorts,White,25-35,Autumn,111.01,Leather,255,4.6,ZARA,10
+Casual Jeans,Male,Jeans,Sky Blue,35-45,All,53.38,Wool,181,4.6,ZARA,5
+Casual Jeans,Female,Skirt,Yellow,18-24,Summer,65.04,Cotton Blend,402,3.8,ZARA,10
+Wool Jacket,Male,Shoes,Yellow,25-35,Autumn,70.21,Leather,266,3.2,ZARA,0
+Wool Jacket,Male,Dress,Sky Blue,25-35,Autumn,52.81,Cotton Blend,375,4.3,ZARA,15
+Casual Jeans,Male,Jeans,Brown,35-45,Spring,113.64,Wool,381,3.6,ZARA,5
+Beach Shirt,Male,Shorts,Beige,35-45,Winter,37.05,Cotton Blend,245,3.9,ZARA,20
+Chino Shorts,Female,Blouse,Brown,25-35,Autumn,43.55,Wool,370,3.5,ZARA,15
+Casual Jeans,Male,Jeans,Brown,25-35,Autumn,78.6,Cotton Blend,81,4.4,ZARA,0
+Heels,Male,Jacket,White,25-35,Autumn,149.93,Synthetic,361,4.1,ZARA,15
+Heels,Male,Shorts,White,25-35,Summer,32.43,Synthetic,200,3.7,ZARA,5
+Blouse,Female,Skirt,White,25-35,Autumn,120.7,Wool,77,3.3,ZARA,20
+Business Shirt,Male,Jeans,Beige,35-45,All,72.77,Synthetic,428,4.6,ZARA,20
+Blouse,Male,Shirt,Brown,35-45,Winter,107.91,Wool,344,4.8,ZARA,15
+Blouse,Female,Shorts,Beige,25-35,Spring,141.74,Viscose,221,4.9,ZARA,20
+Wool Jacket,Female,Jacket,Brown,35-45,Winter,116.08,Viscose,303,4.1,ZARA,0
+Pattern Skirt,Male,Blouse,White,35-45,All,64.75,Synthetic,159,4.4,ZARA,10
+Wool Jacket,Female,Blouse,Brown,35-45,Autumn,96.88,Synthetic,394,3.1,ZARA,20
+Blouse,Female,Dress,Beige,18-24,Spring,134.53,Denim,427,4.5,ZARA,0
+Pattern Skirt,Male,Shorts,Beige,25-35,Winter,80.07,Leather,239,4.1,ZARA,5
+Chino Shorts,Male,Jacket,White,25-35,Winter,76.6,Wool,59,4.3,ZARA,20
+Beach Shirt,Female,Shoes,White,35-45,Spring,65.65,Leather,59,4.5,ZARA,0
+Biker Jacket,Female,Shirt,Brown,18-24,Spring,101.68,Leather,193,3.7,ZARA,5
+Beach Shirt,Male,Skirt,Beige,35-45,All,20.25,Leather,112,3.1,ZARA,20
+Pattern Skirt,Male,Jeans,Beige,35-45,Summer,111.8,Wool,371,4.6,ZARA,20
+Wool Jacket,Male,Shirt,Brown,35-45,All,146.82,Viscose,53,3.9,ZARA,0
+Biker Jacket,Female,Skirt,Brown,18-24,Summer,34.99,Viscose,286,3.0,ZARA,5
+Blouse,Male,Shoes,Brown,35-45,All,69.19,Leather,331,4.5,ZARA,15
+Blouse,Male,Jeans,Beige,18-24,Autumn,144.28,Cotton Blend,353,3.5,ZARA,10
+Business Shirt,Male,Shorts,Beige,25-35,Winter,144.79,Cotton,333,3.4,ZARA,0
+Beach Shirt,Male,Jeans,White,35-45,Winter,62.68,Viscose,86,3.8,ZARA,0
+Chino Shorts,Female,Dress,Brown,25-35,Winter,98.01,Leather,347,3.2,ZARA,15
+Business Shirt,Female,Dress,Beige,25-35,Summer,85.96,Cotton Blend,146,3.2,ZARA,0
+Summer Dress,Male,Skirt,Beige,18-24,Winter,34.87,Viscose,172,4.6,ZARA,5
+Wool Jacket,Female,Jeans,Beige,35-45,Spring,60.02,Denim,259,4.3,ZARA,5
+Summer Dress,Male,Shoes,Brown,18-24,Spring,148.92,Wool,155,3.8,ZARA,10
+Casual Jeans,Male,Jeans,Beige,25-35,Spring,139.28,Cotton,303,4.0,ZARA,15
+Chino Shorts,Female,Skirt,Brown,18-24,Autumn,127.56,Synthetic,70,4.3,ZARA,20
+Wool Jacket,Female,Jacket,Orange,25-35,Spring,149.41,Cotton Blend,491,4.3,ZARA,10
+Business Shirt,Male,Blouse,Orange,35-45,Autumn,53.01,Cotton Blend,308,3.0,ZARA,10
+Chino Shorts,Female,Skirt,Black,25-35,Summer,79.18,Leather,435,4.0,ZARA,10
+Heels,Female,Blouse,Black,18-24,Spring,44.92,Wool,340,4.5,ZARA,5
+Summer Dress,Male,Jacket,Orange,25-35,Summer,46.09,Cotton,122,4.7,ZARA,10
+Beach Shirt,Male,Jeans,Black,25-35,Winter,38.13,Leather,313,3.7,ZARA,10
+Wool Jacket,Male,Shorts,Black,25-35,Spring,48.24,Synthetic,105,4.2,ZARA,0
+Pattern Skirt,Female,Skirt,Black,35-45,Summer,56.2,Leather,65,4.9,ZARA,20
+Blouse,Male,Shirt,Orange,25-35,All,52.81,Viscose,218,3.7,ZARA,20
+Casual Jeans,Male,Jacket,Black,35-45,Spring,141.19,Synthetic,472,4.1,ZARA,5
+Wool Jacket,Female,Shirt,Black,25-35,Winter,143.39,Cotton Blend,145,3.5,ZARA,20
+Beach Shirt,Female,Skirt,White,25-35,Autumn,20.64,Cotton,190,3.3,ZARA,0
+Casual Jeans,Male,Jeans,White,35-45,All,101.47,Wool,471,3.7,ZARA,0
+Business Shirt,Male,Shoes,White,25-35,Autumn,148.75,Synthetic,412,3.6,ZARA,10
+Biker Jacket,Male,Jacket,Navy Blue,25-35,Winter,149.19,Cotton,256,3.3,ZARA,5
+Biker Jacket,Female,Shorts,Grey,25-35,Winter,49.02,Cotton Blend,233,4.4,ZARA,10
+Pattern Skirt,Female,Jeans,Navy Blue,18-24,Spring,93.6,Cotton Blend,418,3.7,ZARA,0
+Beach Shirt,Male,Skirt,Grey,25-35,All,55.88,Wool,203,4.8,ZARA,10
+Wool Jacket,Female,Jacket,Grey,35-45,Spring,124.35,Cotton,434,3.2,ZARA,10
+Chino Shorts,Male,Shirt,Grey,35-45,Summer,137.08,Denim,88,4.5,ZARA,5
+Blouse,Female,Skirt,White,25-35,Summer,77.7,Denim,144,3.2,ZARA,10
+Blouse,Female,Jeans,Grey,18-24,All,127.82,Viscose,321,3.1,ZARA,10
+Blouse,Male,Jeans,Red,35-45,Spring,82.19,Cotton Blend,482,5.0,ZARA,15
+Business Shirt,Male,Shirt,White,25-35,All,78.87,Leather,338,3.5,ZARA,0
+Heels,Male,Shoes,White,18-24,All,32.14,Wool,431,3.6,ZARA,0
+Beach Shirt,Male,Shirt,Green,35-45,Summer,84.67,Viscose,252,4.4,ZARA,10
+Heels,Female,Jeans,Red,18-24,Summer,37.71,Cotton Blend,467,4.2,ZARA,10
+Biker Jacket,Female,Blouse,Green,25-35,Spring,76.82,Cotton,176,3.8,ZARA,15
+Wool Jacket,Female,Jacket,Green,25-35,Summer,48.45,Wool,328,5.0,ZARA,20
+Summer Dress,Female,Dress,White,18-24,Winter,61.52,Cotton,200,4.7,ZARA,10
+Blouse,Female,Shoes,White,35-45,Autumn,31.07,Synthetic,478,4.0,ZARA,10
+Biker Jacket,Male,Shirt,Red,18-24,Winter,139.69,Cotton Blend,125,4.8,ZARA,5
+Casual Jeans,Female,Shirt,White,25-35,Spring,119.86,Synthetic,215,3.6,ZARA,0
