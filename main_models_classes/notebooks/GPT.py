@@ -97,7 +97,7 @@ class GPT:
             },
             {
                 "name": "situation",
-                "description": "Good for answering questions related to situations, like what to wear when going to specific ",
+                "description": "Good for answering questions related to situations, like what to wear when going to specific event or occasion",
                 "prompt_template": situation_template
             }
         ]
