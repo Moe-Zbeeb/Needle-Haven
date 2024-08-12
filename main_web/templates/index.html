@@ -26,14 +26,26 @@
                 <i class="fas fa-shopping-cart"></i>
             </div>
             <div class="navbar-button">
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-bars" onclick="openNav()"></i>
             </div>
         </div>
     </header>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="search-container">
+            <input type="text" placeholder="Search..." class="search-input">
+            <button class="search-button"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="tabs-container">
+            <div class="tab active" id="items-tab" onclick="showTab('items')">ITEMS</div>
+            <div class="tab" id="stores-tab" onclick="showTab('stores')">STORES</div>
+        </div>
+    </div>
+    
+    
+    <div class="bubble-container"></div> <!-- Bubble Container -->
     <div class="content">
-
-
-        
         <section class="page page1">
             <button class="contact-button" id="contactButton">▶ Contact Us</button>
             <button class="shop-button">▶ Shop</button>
@@ -91,7 +103,6 @@
         <section class="page page2">
             <div class="about-container">
                 <h1>About Us</h1>
-                
                 <div class="content-container">
                     <div class="left-container">
                         <div class="blue-rectangle">
@@ -142,7 +153,7 @@
                         <figcaption>Analytics for Stores</figcaption>
                         </figure>
 
-                       
+            
                 </div>
                 <div class="right-section">
                     <h1>Our Services</h1>
@@ -195,7 +206,6 @@
 
 
         </section>
-      
     </div>
 
     <script src="../static/JS/scripts.js"></script>

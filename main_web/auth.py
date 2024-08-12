@@ -1,8 +1,9 @@
 import functools
 from flask import Blueprint, flash, g, redirect, render_template, request, session, url_for, current_app
 from werkzeug.security import check_password_hash, generate_password_hash
-from main_web.db import get_db
+from db import get_db
 from flask_mail import Message
+from flask_mail import Mail
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -102,8 +103,6 @@ def login_required(view):
 
 def send_welcome_email(to, username):
     with current_app.app_context():
-        msg = Message("Welcome to Our Service",
-                      sender="your-email@example.com",
-                      recipients=[to])
+        msg = Message("Welcome to Our Service", sender="your-email@example.com",recipients=[to])
         msg.body = f"Hi {username},\n\nWelcome to chic! We're glad to have you with us.\n\nBest Regards,\nDev Team"
-        mail.send(msg)
+        Mail.send(msg)

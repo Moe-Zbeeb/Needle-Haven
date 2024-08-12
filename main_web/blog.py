@@ -3,14 +3,11 @@ import os
 from flask import Blueprint, flash, g, redirect, render_template, request, session, url_for, current_app as app, abort
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
-from main_web.db import get_db
+from db import get_db
 from flask_mail import Mail, Message
-from main_web import mail
 
 bp = Blueprint('blog', __name__)
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
-
-
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 

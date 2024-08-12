@@ -15,26 +15,6 @@ window.addEventListener('scroll', function() {
     headerRight.style.width = `${newWidth}px`;
 });
 
-function getGreetingMessage() {
-    const currentHour = new Date().getHours();
-    let greeting;
-
-    if (currentHour < 12) {
-        greeting = 'Good Morning!';
-    } else if (currentHour < 18) {
-        greeting = 'Good Afternoon!';
-    } else {
-        greeting = 'Good Evening!';
-    }
-
-    return greeting;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const greetingElement = document.getElementById('greeting');
-    greetingElement.textContent = getGreetingMessage();
-});
-
 document.addEventListener('DOMContentLoaded', () => {
     const bubbleContainer = document.querySelector('.bubble-container');
     const totalBubbles = 20;
