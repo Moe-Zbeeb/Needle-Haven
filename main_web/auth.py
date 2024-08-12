@@ -1,7 +1,7 @@
 import functools
 from flask import Blueprint, flash, g, redirect, render_template, request, session, url_for, current_app
 from werkzeug.security import check_password_hash, generate_password_hash
-from db import get_db
+from .db import get_db
 from flask_mail import Message
 from flask_mail import Mail
 
