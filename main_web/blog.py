@@ -3,7 +3,7 @@ import os
 from flask import Blueprint, flash, g, redirect, render_template, request, session, url_for, current_app as app, abort
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
-from db import get_db
+from .db import get_db
 from flask_mail import Mail, Message
 
 bp = Blueprint('blog', __name__)
