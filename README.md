@@ -48,8 +48,17 @@ Before you begin, ensure you have the following installed on your system:
 ## Running the Application
 
 1. **Run the Application**
+   On macOS/Linux:
     ```bash
-    flask --main_web flaskr run --debug
+    export FLASK_APP=main_web
+    export FLASK_ENV=development  # Optional, enables debug mode
+    flask run
+    ```
+    On Windows:
+    ```bash
+    set FLASK_APP=main_web
+    set FLASK_ENV=development  # Optional, enables debug mode
+    flask run
     ```
 
 ## Updating Requirements
