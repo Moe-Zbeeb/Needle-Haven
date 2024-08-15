@@ -4,7 +4,7 @@ import json
 import os
 
 class ImageGenerator:
-    def __init__(self, region_name="us-east-1", model_id="amazon.titan-image-generator-v2:0"):
+    def _init_(self, region_name="us-east-1", model_id="amazon.titan-image-generator-v2:0"):
         # Initialize the Bedrock Runtime client in the specified AWS Region.
         self.client = boto3.client("bedrock-runtime", region_name=region_name)
         self.model_id = model_id
@@ -14,16 +14,21 @@ class ImageGenerator:
         with open(image_path, "rb") as image_file:
             return base64.b64encode(image_file.read()).decode('utf-8')
 
+    def generate_image(self, model, item, image_path, size="medium"):
+        """
+        Generate an image variation based on the provided model, item, and size.
 
-
-    ############generates image given the model(man,woman,...) and the item(tshirt, shirt, shorts,...)##############
-
-    def generate_image(self, model,item, image_path):
+        :param model: The model description (e.g., "man", "woman").
+        :param item: The item of clothing (e.g., "t-shirt", "shorts").
+        :param image_path: The path to the input image.
+        :param size: The size of the person (e.g., "small", "medium", "large").
+        """
         # Read the input image and encode it.
         encoded_image = self.read_image(image_path)
 
-        prompt =model + " wearing the"+ item +"in the image"
-
+        # Create a prompt that includes the model, item, size, and professional photo specification.
+        prompt = (f"A professional photo of a {model} of {size} size wearing the {item} "
+                  "in the image, with a suitable background that complements the outfit.")
 
         # Create the request payload.
         native_request = {
@@ -66,4 +71,3 @@ class ImageGenerator:
             file.write(image_data)
 
         print(f"The generated image has been saved to {output_image_path}.")
-
