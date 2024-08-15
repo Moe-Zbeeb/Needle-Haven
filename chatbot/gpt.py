@@ -27,8 +27,8 @@ from langchain.llms import OpenAI
 from IPython.display import Markdown
 
 llm_model="gpt-3.5-turbo"
-openai_api_key = 
-input_file = 
+openai_api_key = "sk-None-XS76dEz4IURDhsv2AJb9T3BlbkFJYoWnTsDhATqUPkspJY6n"
+input_file = ""
 
 class GPT:
     def __init__(self):
