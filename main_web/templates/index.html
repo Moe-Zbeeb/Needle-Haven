@@ -11,16 +11,27 @@
 <body>
     <header>
         <div class="logo">
-            <img src="../static/images/logo.png" alt="Logo" class="logo-img original">
-            <img src="../static/images/logo-inverse.png" alt="Alternate Logo" class="logo-img alternate">
+            <a href="{{ url_for('blog.index') }}">
+                <img src="../static/images/logo.png" alt="Logo" class="logo-img original">
+                <img src="../static/images/logo-inverse.png" alt="Alternate Logo" class="logo-img alternate">
+            </a>
         </div>
         <div class="header-right"></div>
         <div class="icon-container">
-            <button class="gpt-button">
-                <img src="../static/images/gpt-icon.svg" alt="GPT Icon" class="gpt-icon-img">
-            </button>
+            <div class="gpt-dropdown">
+                <button class="gpt-button">
+                    <img src="../static/images/gpt-icon.svg" alt="GPT Icon" class="gpt-icon-img">
+                </button>
+                <div class="gpt-options">
+                    <a href="#" class="gpt-option">GPT 1</a>
+                    <a href="#" class="gpt-option">GPT 2</a>
+                    <a href="#" class="gpt-option">GPT 3</a>
+                </div>
+            </div>
             <div class="profile-icon">
-                <i class="fas fa-user"></i>
+                <a href="{{ url_for('blog.profile') }}">
+                    <i class="fas fa-user" style="color: white;"></i>
+                </a>
             </div>
             <div class="cart-button">
                 <i class="fas fa-shopping-cart"></i>
@@ -30,7 +41,7 @@
             </div>
         </div>
     </header>
-
+    <div id="overlay" class="overlay" onclick="closeNav()"></div>
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="search-container">
@@ -48,7 +59,7 @@
     <div class="content">
         <section class="page page1">
             <button class="contact-button" id="contactButton">▶ Contact Us</button>
-            <button class="shop-button">▶ Shop</button>
+            <button class="shop-button" onclick="window.location.href='shop.html'">▶ Shop</button>
             <div class="container">
                 <div class="images">
                     <img src="../static/images/image1.jpg" alt="Image 1">
@@ -71,38 +82,98 @@
             <p>Small Business Marketplace, Fashion Items, Trendy Outfits, Exclusive Collections, Support Local, Business Growth, Fashion Accessories.</p>
 
         </section>
+        
+        <section class="page page7">
 
+            <div class="image-row">
+                <div class="image-container">
+                    <img src="../static/images/womenswear.jpg" alt="Womenswear">
+                    <div class="overlay">
+                        <div class="text">Womenswear</div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="../static/images/menswear.jpg" alt="Menswear">
+                    <div class="overlay">
+                        <div class="text">Menswear</div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="../static/images/kidswear.jpg" alt="Kidswear">
+                    <div class="overlay">
+                        <div class="text">Kidswear</div>
+                    </div>
+                </div>
+            </div>
 
-        <section class="page page5">
-            <h1>Top Stores</h1>
-            <div class="marquee">
-                <div>
-                    <img src="../static/images/Elegance.jpg" alt="Elegance Boutique Logo">
-                    <span>Elegance Boutique</span>
+        </section>
+
+        <section class="page page6">
+            <h1>FEATURED ITEMS</h1>
+            <div class="items-container">
+                <div class="item">
+                    <img src="../static/images/item1.jpg" alt="Item 1">
+                    <h2>Serenity Pleats</h2>
+                    <p>$50.00</p>
                 </div>
-                <div>
-                    <img src="../static/images/Chic.jpg" alt="Chic Couture Logo">
-                    <span>Chic Couture</span>
+                <div class="item">
+                    <img src="../static/images/item2.jpg" alt="Item 2">
+                    <h2>Ivory Silk Halter</h2>
+                    <p>$75.00</p>
                 </div>
-                <div>
-                    <img src="../static/images/FashionFusion.jpg" alt="Fashion Fusion Logo">
-                    <span>Fashion Fusion</span>
+                <div class="item">
+                    <img src="../static/images/item3.jpg" alt="Item 3">
+                    <h2>Wild Luxe Platforms</h2>
+                    <p>$65.00</p>
                 </div>
-                <div>
-                    <img src="../static/images/TrendyThreads.jpg" alt="Trendy Threads Logo">
-                    <span>Trendy Threads</span>
-                </div>
-                <div>
-                    <img src="../static/images/UrbanVogue.jpg" alt="Urban Vogue Logo">
-                    <span>Urban Vogue</span>
+                <div class="item">
+                    <img src="../static/images/item4.jpg" alt="Item 4">
+                    <h2>Pearl Slingbacks</h2>
+                    <p>$80.00</p>
                 </div>
             </div>
         </section>
+        
+
+
+
+        <section class="page page5">
+            <div class="content-container">
+                <!-- Split Container: Video on the left and images on the right -->
+                <div class="split-container">
+                    <div class="left-section">
+                        <video autoplay muted loop>
+                            <source src="../static/videos/sample-video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+        
+                    <div class="right-section">
+                        <div class="images-section">
+                            <div class="top-image">
+                                <img src="../static/images/top-store-1.jpg" alt="Top Store 1">
+                            </div>
+                            <div class="bottom-image">
+                                <img src="../static/images/top-store-2.jpg" alt="Top Store 2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Title Section: Positioned to the right of the split container -->
+                <div class="title-section">
+                    <h1>SPOTLIGHT ON</h1>
+                </div>
+            </div>
+        </section>
+        
+        
+        
 
 
         <section class="page page2">
             <div class="about-container">
-                <h1>About Us</h1>
+                <h1>Needle Haven - A home of fashion</h1>
                 <div class="content-container">
                     <div class="left-container">
                         <div class="blue-rectangle">
@@ -131,55 +202,42 @@
                 </div>
             </div>
         </section>
-        
         <section id="page3" class="page page3">
             <div class="services-container">
-                <div class="left-section">
-                    <figure>
-                        <div class="image-container">
-                            <img src="../static/images/service1.jpg" alt="Service 1">
-                            <div class="overlay">Offering a dedicated space where small businesses can display and sell their fashion products, including clothing, accessories, and more.</div>
+                
+                <div class="services">
+                    <div class="service">
+                        <i class="fas fa-shopping-cart service-icon"></i>
+                        <h3>Marketplace for Fashion</h3>
+                        <p>A dedicated space for small businesses to display and sell fashion products like clothing and accessories.</p>
+                    </div>
+                    <div class="service">
+                        <i class="fas fa-chart-line service-icon"></i>
+                        <h3>Analytics for Stores</h3>
+                        <p>Offering detailed analytics to help stores understand their sales performance, customer behavior, and other important metrics to make informed business decisions.</p>
+                    </div>
+                    <div class="service">
+                        <!-- GPT Icon from SVG -->
+                        <div class="service-icon">
+                            <img src="../static/images/chat-gpt.png" alt="GPT Icon" class="gpt-icon">
                         </div>
-                        <figcaption>Marketplace for Fashion</figcaption>
-                        
-                    </figure>
-                    <figure>
-                        <div class="image-container">
-
-                            <img src="../static/images/service2.jpg" alt="Service 2">
-                            <div class="overlay">Offering detailed analytics to help stores understand their sales performance, customer behavior, and other important metrics to make informed business decisions.</div>
-
-                        </div>
-                        <figcaption>Analytics for Stores</figcaption>
-                        </figure>
-
-            
-                </div>
-                <div class="right-section">
-                    <h1>Our Services</h1>
-                    <figure>
-
-                        <div class="image-container">
-                            <img src="../static/images/service3.jpg" alt="Service 3">
-                            <div class="overlay"> Featuring a chatbot that acts like a stylist, offering personalized recommendations and assistance to customers, enhancing their shopping experience.</div>
-                        </div>
-                        <figcaption>Stylist Chatbot</figcaption>
-                    </figure>
-
+                        <h3>Stylist Chatbot</h3>
+                        <p>Featuring a chatbot that acts like a stylist, offering personalized recommendations and assistance to customers, enhancing their shopping experience.</p>
+                    </div>
                 </div>
             </div>
         </section>
+        
         <section class="page page4" id="contactSection">
-            <h1>Contact Us</h1>
-           
-            <div class="contact-form">
-                <form action="your_form_submission_url" method="POST">
+            <h1>Contact Us</h1>   
+            <div class="contact-form" id="contact-form">
+                <form action="{{ url_for('blog.contact_us')}}" method="POST">
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Full Name *" required>
                     </div>
                     <div class="form-group phone-group">
                         <div class="prefix">+961</div>
-                        <input type="tel" id="phone" name="phone" placeholder="Phone Number *" required>
+                        <input type="tel" id="phone" name="phone_number" placeholder="Phone Number *" required>
                     </div>
                     <div class="form-group">
                         <input type="email" id="email" name="email" placeholder="Email Address *" required>
@@ -188,10 +246,17 @@
                         <textarea id="message" name="message" rows="5" placeholder="Your message including company name, project details and budget" required></textarea>
                     </div>
                     <button type="submit">Submit</button>
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="error-messages">
+                            {% for message in messages %}
+                            <p class="error" style="color: black;">{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% endwith %}
                 </form>
             </div>
-
-
             <footer class="footer">
                 <div class="footer-container">
                     <div class="social-icons">

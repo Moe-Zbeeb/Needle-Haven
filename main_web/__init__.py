@@ -1,8 +1,9 @@
 import os
-from flask import Flask
+from flask import Flask,render_template
 from flask_mail import Mail
 from . import db
 from . import auth
+from .auth import bp as auth_bp
 
 mail = Mail()
 
@@ -13,18 +14,20 @@ def create_app(test_config=None):
         SECRET_KEY='12345678910',
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
         # Email configurations
-        MAIL_SERVER='smtp.your-email-provider.com',
+        MAIL_SERVER='smtp.office365.com',
         MAIL_PORT=587,
         MAIL_USE_TLS=True,
-        MAIL_USERNAME='your-email@example.com',
-        MAIL_PASSWORD='your-email-password'
+        MAIL_USE_SSL=False,
+        MAIL_USERNAME='needlehaven@hotmail.com',
+        MAIL_PASSWORD='nh12345678',
+        MAIL_DEFAULT_SENDER = 'needlehaven@hotmail.com'
     )
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
         app.config.from_pyfile('config.py', silent=True)
     else:
-        # load the test config if passed in
+        # load the test config if passed in+
         app.config.from_mapping(test_config)
 
     # ensure the instance folder exists
@@ -46,3 +49,6 @@ def create_app(test_config=None):
     
 
     return app
+
+create_app()
+

@@ -24,6 +24,7 @@ CREATE TABLE Store (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(50) UNIQUE NOT NULL,
     address VARCHAR(50) NOT NULL,
+    password_hash VARCHAR(255) NOT NULL, -- Store hashed password
     phone_number VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
     website VARCHAR(50) NOT NULL,
@@ -35,10 +36,17 @@ CREATE TABLE Store (
 CREATE TABLE Product (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(50) UNIQUE NOT NULL,
+    category VARCHAR(50)  NOT NULL,
+    subcategory VARCHAR(50)  NOT NULL,
+    type  VARCHAR(50)  NOT NULL,
+    store VARCHAR(50) NOT NULL,
+    color VARCHAR(50) NOT NULL,
     description VARCHAR(255) NOT NULL, -- Increased length for better descriptions
     price INTEGER NOT NULL CHECK (price >= 0), -- Price constraint
     rating INTEGER NOT NULL CHECK (rating >= 0 AND rating <= 5), -- Rating constraint
     store_id INTEGER NOT NULL,
+    date_of_release DATE NOT NULL,
+    image_path VARCHAR(255) NOT NULL, 
     FOREIGN KEY (store_id) REFERENCES Store(id)
 );  
 

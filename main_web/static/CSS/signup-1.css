@@ -131,18 +131,18 @@ header {
 }
 
 .bubble.green {
-    background-color: rgba(0, 255, 0, 0.7);
+    background-color: rgba(252, 199, 199, 0.815);
 }
 
 .bubble.pink {
-    background-color: rgba(236, 15, 181, 0.877);
+    background-color: rgba(255, 227, 178, 0.877);
 }
 
 .bubble.blue{
-    background-color: rgb(77, 36, 255);
+    background-color: rgb(229, 172, 93);
 }
 .bubble.yellow{
-    background-color: rgba(255, 208, 54, 0.966);
+    background-color: rgba(168, 112, 61, 0.966);
 }
 
 @keyframes moveUp {
