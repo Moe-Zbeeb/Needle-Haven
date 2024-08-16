@@ -1,0 +1,10 @@
+To use the saved model:
+1. Load the model using pickle:
+   with open('decision_tree_classifier_model.pkl', 'rb') as model_file:
+       model = pickle.load(model_file)
+
+2. Prepare your data (make sure it has the same features as the training data):
+   X_new = ...  # Your new data
+
+3. Predict using the loaded model:
+   predictions = model.predict(X_new)
