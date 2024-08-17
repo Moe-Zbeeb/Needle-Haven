@@ -578,4 +578,47 @@ def change_password():
         if error:
             flash(error)
 
-    return render_template('myprofile_user.html')
+    return render_template('myprofile_user.html') 
+
+@bp.route('/GPT/<int:i>', methods=['GET', 'POST'])
+def gpt(i):
+    gpt = GPT() 
+    
+    if request.method == 'POST':
+        query = request.form.get('query')
+        
+        if i == 1: 
+            response1 = gpt.general_search(query)
+            return response1 
+        elif i == 2: 
+            wiki_response = gpt.wiki_search(query)
+            return wiki_response
+        elif i == 3:
+            stores_response = gpt.stores_search(query)
+            return stores_response    
+        else: 
+            return "Invalid request"
+
+    # Render the HTML form if the request method is GET
+    return render_template('gpt_form.html')   
+
+
+@bp.route('/stylist', methods=['GET', 'POST'])
+def stylist():
+    if request.method == 'POST':
+        gender = request.form.get('gender')
+        itemname = request.form.get('itemname')
+        path = request.form.get('path')
+        size = request.form.get('size')
+        
+        generator = ImageGenerator(region_name="us-east-1", model_id="amazon.titan-image-generator-v2:0")
+        generator.generate_image(
+            model=gender, 
+            item=itemname,
+            image_path=path,  
+            size=size 
+        )
+        
+        return f"Image generated successfully with {gender}, {itemname}, {path}, {size}"
+    
+    return render_template('stylist_form.html')
