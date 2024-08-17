@@ -4,7 +4,7 @@ import json
 import os
 
 class ImageGenerator:
-    def _init_(self, region_name="us-east-1", model_id="amazon.titan-image-generator-v2:0"):
+    def __init__(self, region_name="us-east-1", model_id="amazon.titan-image-generator-v2:0"):
         # Initialize the Bedrock Runtime client in the specified AWS Region.
         self.client = boto3.client("bedrock-runtime", region_name=region_name)
         self.model_id = model_id
