@@ -42,7 +42,6 @@
 
     <div class="chatbot-container">
         <div class="chat-header">
-
             <i class="fa-solid fa-shirt"></i>
             Personalized Stylist
         </div>
@@ -56,14 +55,12 @@
             <ul>
                 <div class="examples-container">
                     <span class="example">What can I wear for a dinner today?</span>
-                <span class="example">What could a black t-shirt paired with for a casual look?</span>
+                    <span class="example">What could a black t-shirt paired with for a casual look?</span>
                     <span class="example">Does a white hat go with a blue outfit?</span>
                     <span class="example">What can I wear for a fancy night out?</span>
-                    
                 </div>
             </ul>
         </div>
-
 
         <div class="chat-input-area">
             <label for="imageUpload" class="upload-label">
@@ -75,6 +72,46 @@
         </div>
     </div>
 
-    
+    <script>
+        document.getElementById('sendButton').addEventListener('click', function() {
+            const userInput = document.getElementById('userInput').value;
+            
+            if (userInput.trim() !== "") {
+                const chatWindow = document.getElementById('chatWindow');
+                const userMessage = document.createElement('div');
+                userMessage.className = 'message user-message';
+                userMessage.textContent = userInput;
+                chatWindow.appendChild(userMessage);
+                
+                document.getElementById('userInput').value = "";
+
+                // Send user input to the backend
+                fetch('/gpt_ask', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: userInput })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const botMessage = document.createElement('div');
+                    botMessage.className = 'message bot-message';
+                    botMessage.textContent = data.response;
+                    chatWindow.appendChild(botMessage);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        });
+
+        // Optional: Send message when pressing Enter
+        document.getElementById('userInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                document.getElementById('sendButton').click();
+            }
+        });
+    </script>
 </body>
 </html>
