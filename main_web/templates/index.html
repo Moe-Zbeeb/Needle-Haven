@@ -23,9 +23,10 @@
                     <img src="../static/images/gpt-icon.svg" alt="GPT Icon" class="gpt-icon-img">
                 </button>
                 <div class="gpt-options">
-                    <a href="#" class="gpt-option">GPT 1</a>
-                    <a href="#" class="gpt-option">GPT 2</a>
-                    <a href="#" class="gpt-option">GPT 3</a>
+                    <a href="#" class="gpt-option">Product Finder</a>
+                    <a href="#" class="gpt-option">Fashion Expert</a>
+                    <a href="#" class="gpt-option">Personalized Stylist</a>
+                    <a href="#" class="gpt-option">Virtual Model</a>
                 </div>
             </div>
             <div class="profile-icon">
@@ -42,24 +43,77 @@
         </div>
     </header>
     <div id="overlay" class="overlay" onclick="closeNav()"></div>
-    <div id="mySidebar" class="sidebar">
+    <div id="mySidebar" class="sidebar" style="width: {{ '54vw' if sidebar_open else '0' }};">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <div class="search-container">
-            <input type="text" placeholder="Search..." class="search-input">
-            <button class="search-button"><i class="fas fa-search"></i></button>
-        </div>
+        <form action="{{ url_for('blog.search', page = 'index') }}" method="GET">
+            <div class="search-container">
+                <input type="text" name="query" placeholder="Search..." class="search-input" required value="{{ query }}">
+                <input type="hidden" name="tab" id="selectedTab" value="{{ tab | default('items') }}"> <!-- Default to items -->
+                <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
         <div class="tabs-container">
-            <div class="tab active" id="items-tab" onclick="showTab('items')">ITEMS</div>
-            <div class="tab" id="stores-tab" onclick="showTab('stores')">STORES</div>
+            <div class="tab {% if tab == 'items' or tab is undefined %}active{% endif %}" id="items-tab" onclick="selectTab('items')">ITEMS</div>
+            <div class="tab {% if tab == 'stores' %}active{% endif %}" id="stores-tab" onclick="selectTab('stores')">STORES</div>            
         </div>
-    </div>
-    
-    
+        <!-- Results Section -->
+        {% if tab == 'stores' %}
+        <h2 style="color: white; text-align: center;">Stores</h2>
+        {% if results %}
+            <ul style="list-style-type: none; padding: 0;">
+                {% for store in results %}
+                <li style="color: white; text-align: center; margin-bottom: 20px; list-style-type: none;">
+                    <a href="{{ url_for('blog.filter_products', category_name= 'Womenswear', store=store.name ,subcategory=':', type = ':')}}" style="text-decoration: none; color: white;">
+                        <img src="{{ store.logo_path  }}" alt="{{ store.name }}" style="width: 100px; height: auto; display: block; margin: 0 auto; border-radius: 5px;">
+                        <strong style="display: block; margin: 10px 0;">{{ store.name }} - Womenswear</strong>
+                    </a>
+                    <hr style="border: 0; height: 1px; background-color: white; width: 50%; margin: 20px auto;">
+                </li>
+                <li style="color: white; text-align: center; margin-bottom: 20px; list-style-type: none;">
+                    <a href="{{ url_for('blog.filter_products', category_name= 'Menswear', store=store.name ,subcategory=':', type = ':')}}" style="text-decoration: none; color: white;">
+                        <img src="{{ store.logo_path }}" alt="{{ store.name }}" style="width: 100px; height: auto; display: block; margin: 0 auto; border-radius: 5px;">
+                        <strong style="display: block; margin: 10px 0;">{{ store.name }} - Menswear</strong>
+                    </a>
+                    <hr style="border: 0; height: 1px; background-color: white; width: 50%; margin: 20px auto;">
+                </li>
+                <li style="color: white; text-align: center; margin-bottom: 20px; list-style-type: none;">
+                    <a href="{{ url_for('blog.filter_products', category_name= 'Kidswear', store=store.name ,subcategory=':', type = ':')}}" style="text-decoration: none; color: white;">
+                        <img src="{{ store.logo_path }}" alt="{{ store.name}}" style="width: 100px; height: auto; display: block; margin: 0 auto; border-radius: 5px;">
+                        <strong style="display: block; margin: 10px 0;">{{ store.name }} - Kidswear</strong>
+                    </a>
+                    <hr style="border: 0; height: 1px; background-color: white; width: 50%; margin: 20px auto;">
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p style="color: white; text-align: center;">No stores found.</p>
+        {% endif %}
+    {% elif tab == 'items' %}
+        <h2 style="color: white; text-align: center;">Items</h2>
+        {% if results %}
+            <ul style="list-style-type: none; padding: 0;">
+                {% for item in results %}
+                <li style="color: white; text-align: center; margin-bottom: 20px; list-style-type: none;">
+                    <a href="{{ url_for('blog.item_details', product_id=item.id) }}" style="text-decoration: none; color: white;">
+                        <img src="{{ item.image_path }}" alt="{{ item.name }}" style="width: 100px; height: auto; display: block; margin: 0 auto; border-radius: 5px;">
+                        <strong style="display: block; margin: 10px 0;">{{ item.name }}</strong>
+                        <span style="display: block; margin: 10px 0;">{{ item.store }}</span>
+                        <span style="display: block; margin: 10px 0;">${{ item.price }}</span>
+                    </a>
+                    <hr style="border: 0; height: 1px; background-color: white; width: 50%; margin: 20px auto;">
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p style="color: white; text-align: center;">No items found.</p>
+        {% endif %}
+    {% endif %}   
+    </div>     
     <div class="bubble-container"></div> <!-- Bubble Container -->
     <div class="content">
         <section class="page page1">
             <button class="contact-button" id="contactButton">▶ Contact Us</button>
-            <button class="shop-button" onclick="window.location.href='shop.html'">▶ Shop</button>
+            <button class="shop-button" onclick="location.href='{{ url_for('blog.shop')}}'">▶ Shop</button>
             <div class="container">
                 <div class="images">
                     <img src="../static/images/image1.jpg" alt="Image 1">
@@ -111,32 +165,19 @@
         <section class="page page6">
             <h1>FEATURED ITEMS</h1>
             <div class="items-container">
-                <div class="item">
-                    <img src="../static/images/item1.jpg" alt="Item 1">
-                    <h2>Serenity Pleats</h2>
-                    <p>$50.00</p>
-                </div>
-                <div class="item">
-                    <img src="../static/images/item2.jpg" alt="Item 2">
-                    <h2>Ivory Silk Halter</h2>
-                    <p>$75.00</p>
-                </div>
-                <div class="item">
-                    <img src="../static/images/item3.jpg" alt="Item 3">
-                    <h2>Wild Luxe Platforms</h2>
-                    <p>$65.00</p>
-                </div>
-                <div class="item">
-                    <img src="../static/images/item4.jpg" alt="Item 4">
-                    <h2>Pearl Slingbacks</h2>
-                    <p>$80.00</p>
-                </div>
+                {% for product in products %}
+                <a href="{{ url_for('blog.item_details', product_id=product.id) }}" class="item-card-link">
+                    <div class="item-card">
+                        <img src="{{ url_for('static', filename=product.image_path) }}" alt="{{ product.name }}">
+                        <h3>{{ product.name }}</h3>
+                        <p class="store-name">{{ product.store }}</p>
+                        <p class="price">$ {{ product.price }}</p>
+                    </div>
+                </a>
+                {% endfor %}
             </div>
         </section>
         
-
-
-
         <section class="page page5">
             <div class="content-container">
                 <!-- Split Container: Video on the left and images on the right -->

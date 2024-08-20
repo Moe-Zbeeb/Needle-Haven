@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop</title>
-    <link rel="stylesheet" href="../static/CSS/shop.css"> <!-- Link to your shop.css -->
+    <title>Items</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/items.css') }}"> <!-- Link to your shop.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;400;700&display=swap" rel="stylesheet">
 </head>
@@ -20,16 +20,13 @@
             </nav>
         </div>
         <div class="logo">
-            <a href="{{ url_for('blog.index') }}">
-                <img src="../static/images/logo.png" alt="Logo" class="logo-img original">
-                <img src="../static/images/logo-inverse.png" alt="Alternate Logo" class="logo-img alternate">
-            </a>
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo-img">
         </div>
         <div class="header-right">
             <div class="icon-container">
                 <div class="gpt-dropdown">
                     <button class="gpt-button">
-                        <img src="../static/images/gpt-icon.svg" alt="GPT Icon" class="gpt-icon-img">
+                        <img src="{{ url_for('static', filename='images/gpt-icon.svg') }}" alt="GPT Icon" class="gpt-icon-img">
                     </button>
                     <div class="gpt-options">
                         <a href="#" class="gpt-option">Product Finder</a>
@@ -50,16 +47,19 @@
                     <i class="fas fa-bars" onclick="openNav()"></i>
                 </div>
             </div>
-        </div>
+        </div>   
     </header>
     <div id="overlay" class="overlay" onclick="closeNav()"></div>
     <div id="mySidebar" class="sidebar" style="width: {{ '54vw' if sidebar_open else '0' }};">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <form action="{{ url_for('blog.search', page = 'shop') }}" method="GET">
+        <form action="{{ url_for('blog.search', page = 'items') }}" method="GET">
             <div class="search-container">
                 <input type="text" name="query" placeholder="Search..." class="search-input" required value="{{ query }}">
                 <input type="hidden" name="tab" id="selectedTab" value="{{ tab | default('items') }}"> <!-- Default to items -->
                 <input type="hidden" name="category_name" id="selectedTab" value="{{ category_name }}"> 
+                <input type="hidden" name="subcategory" id="selectedTab" value="{{ subcategory }}"> 
+                <input type="hidden" name="type" id="selectedTab" value="{{ type }}">
+                <input type="hidden" name="store" id="selectedTab" value="{{ store }}">  
                 <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
             </div>
         </form>
@@ -96,9 +96,9 @@
                 </li>
                 {% endfor %}
             </ul>
-    {% else %}
-        <p style="color: white; text-align: center;">No stores found.</p>
-    {% endif %}
+        {% else %}
+            <p style="color: white; text-align: center;">No stores found.</p>
+        {% endif %}
     {% elif tab == 'items' %}
         <h2 style="color: white; text-align: center;">Items</h2>
         {% if results %}
@@ -119,7 +119,7 @@
             <p style="color: white; text-align: center;">No items found.</p>
         {% endif %}
     {% endif %}   
-    </div>     
+    </div>    
 
     <nav class="categories-bar">
         <ul class="categories-links">
@@ -178,11 +178,26 @@
         </ul>
     </nav>
 
-
-    <div class="new-in-section">
-        <h2>New In - {{ category_name | capitalize }}</h2>
-        <div class="new-in-items">
-            {% for product in productsnewin %}
+    <div class="category-header">
+        <div class="category-title">
+            {% if store != ':' %}
+                <h1>{{ category_name.capitalize() }} from {{ store }}</h1>
+            {% else %}
+                <h1>{{ subcategory.capitalize() }} in {{ category_name.capitalize() }}</h1>
+            {% endif %}
+        </div>
+    <div class="sort-by-container">
+        <button class="sort-by-button">Sort by <i class="fas fa-chevron-down"></i></button>
+        <div class="sort-options">
+            <a href="{{ url_for('blog.filter_products', category_name=category_name, store = store,subcategory=subcategory, type=type, sort='high-to-low') }}" data-sort="high-to-low">Price: High to Low</a>
+            <a href="{{ url_for('blog.filter_products', category_name=category_name,store = store, subcategory=subcategory, type=type, sort='low-to-high') }}" data-sort="low-to-high">Price: Low to High</a>
+            <a href="{{ url_for('blog.filter_products', category_name=category_name,store=store, subcategory=subcategory, type=type, sort='newest-first') }}" data-sort="newest-first">Newest First</a>
+        </div>
+    </div>
+    </div>
+    <div class="items-container">
+        {% if products %}
+            {% for product in products %}
             <a href="{{ url_for('blog.item_details', product_id=product.id) }}" class="item-card-link">
                 <div class="item-card">
                     <img src="{{ url_for('static', filename=product.image_path) }}" alt="{{ product.name }}">
@@ -192,41 +207,15 @@
                 </div>
             </a>
             {% endfor %}
-        </div>
-    </div>
-
-
-    <div class="content-container">
-        <div class="text-content">
-            <h2>Elevate Your Activewear</h2>
-            <p>Explore our exclusive collection of activewear designed to boost your performance and style. From sleek designs to comfortable fabrics, find the perfect outfit that suits your active lifestyle.</p>
-        </div>
-        <div class="image-content">
-            <div class="image-overlay">
-                <img src="../static/images/activewear.jpg" alt="Activewear Collection">
-                <div class="overlay-text">Discover our activewear collection
-                    <div class="overlay-line"></div>
-                </div>
+        {% else %}
+            <div style="display: flex; justify-content: center; align-items: center; height: 23vh; width: 100%;margin-left: 550px;">
+                <p style="text-align: center; color: gray; font-size: 20px; font-weight: bold;margin-bottom:100px">No items found.</p>
             </div>
-        </div>
+        {% endif %}
     </div>
     
-    <div class="trending-now">
-        <h2>Trending Now</h2>
-        <div class="trending-now-items">
-            {% for product in productstrendingnow %}
-            <a href="{{ url_for('blog.item_details', product_id=product.id) }}" class="item-card-link">
-                <div class="item-card">
-                    <img src="{{ url_for('static', filename=product.image_path) }}" alt="{{ product.name }}">
-                    <h3>{{ product.name }}</h3>
-                    <p class="store-name">{{ product.store }}</p>
-                    <p class="price">$ {{ product.price }}</p>
-                </div>
-            </a>
-            {% endfor %}
-        </div>
-    </div>    
-
+    
+    
 
     <section id="page3" class="page page3">
         <div class="services-container">
@@ -245,7 +234,7 @@
                 <div class="service">
                     <!-- GPT Icon from SVG -->
                     <div class="service-icon">
-                        <img src="../static/images/chat-gpt.png" alt="GPT Icon" class="gpt-icon">
+                        <img src="{{ url_for('static', filename='images/chat-gpt.png') }}" alt="GPT Icon" class="gpt-icon">
                     </div>
                     <h3>Stylist Chatbot</h3>
                     <p>Featuring a chatbot that acts like a stylist, offering personalized recommendations and assistance to customers, enhancing their shopping experience.</p>
@@ -268,6 +257,6 @@
         </div>
     </footer>
 
-    <script src="../static/JS/shop.js"></script>
+<script src="{{ url_for('static', filename='JS/items.js') }}"></script>
 </body>
 </html>
