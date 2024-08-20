@@ -57,19 +57,57 @@
                 <i class="fas fa-plus"></i>
             </label>
             <input type="file" id="imageUpload" style="display: none;" accept="image/*">
-            <select id="modelSizeSelect" class="model-size-select">
-                <option value="" disabled selected>Choose your model's size</option>
-                <option value="small">Small</option>
-                <option value="medium">Medium</option>
-                <option value="large">Large</option>
+            <select id="modelSelect" class="model-select">
+                <option value="" disabled selected>Choose your model</option>
+                <option value="woman">Female</option>
+                <option value="man">Male</option>
             </select>
             <button id="sendButton"><i class="fas fa-paper-plane"></i></button>
         </div>
         
-        
-        
     </div>
 
-    <script src="../static/JS/virtual_tryon.js"></script>
+    <script>
+        document.getElementById('sendButton').addEventListener('click', function() {
+            const imageUpload = document.getElementById('imageUpload').files[0];
+            const modelType = document.getElementById('modelSelect').value;
+            
+            if (imageUpload && modelType) {
+                const formData = new FormData();
+                formData.append('image', imageUpload);
+                formData.append('model', modelType);
+
+                // Send form data to the backend
+                fetch('/virtual_stylist', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the response (display generated image, etc.)
+                    const chatWindow = document.getElementById('chatWindow');
+                    const botMessage = document.createElement('div');
+                    botMessage.className = 'message bot-message';
+                    botMessage.textContent = "Here is your generated image:";
+                    chatWindow.appendChild(botMessage);
+
+                    const imageElement = document.createElement('img');
+                    imageElement.src = data.generated_image_path;
+                    imageElement.alt = "Generated Image";
+                    chatWindow.appendChild(imageElement);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            } else {
+                alert('Please upload an image and select a model.');
+            }
+        });
+
+        // Trigger file input when the label is clicked
+        document.querySelector('.upload-label').addEventListener('click', function() {
+            document.getElementById('imageUpload').click();
+        });
+    </script>
 </body>
 </html>
