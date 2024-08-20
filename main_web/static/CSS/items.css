@@ -43,9 +43,6 @@ header {
     font-weight: 600;
     color: #333;
     padding: 10px 20px;
-    z-index:10000;
-    position:relative;
-    display: block;
 }
 
 .nav-links li a:hover {
@@ -285,165 +282,248 @@ header {
 }
 
 
-/*------------------- new in -------------------*/
-
-
-.new-in-section {
-    margin-top: 100px;
-    padding: 50px;
-    background-color: #ffffff;
-    
+.overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 20; /* Ensure the overlay is below the sidebar */
 }
 
-.new-in-section h2 {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.new-in-items {
-    display: flex;
-    justify-content: space-between;
-    gap: 70px;
-}
-
-.item {
-    background-color: #fff;
-    border: 1px solid #ffffff;
-    overflow: hidden;
-    text-align: center;
-    flex: 1;
-    transition: transform 0.3s;
-}
-
-.item img {
-    width: 190px;
-    height: 250px;
-    object-fit: cover;
-}
-
-.item-details {
-    padding: 15px;
-}
-
-.item-details h3 {
-    font-size: 18px;
-    margin-bottom: 5px;
-    color: #555;
-    text-align: left;
-}
-
-.item-details p {
-    margin: 5px 0;
-    font-size: 16px;
-    color: #777;
-    text-align: left;
-
-}
-
-
-/*------------------------activewear-----------------*/
-
-.content-container {
+.search-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background-color: #f9f9f9;
+    padding: 10px 20px;
 }
 
-.text-content {
-    flex: 1;
-    padding: 50px;
-    text-align: left;
-}
-
-
-.text-content h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #2c3e50;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-weight:400;
-    letter-spacing: 1px;
-}
-
-.text-content p {
-    font-size: 18px;
-    color: #7f8c8d;
-    line-height: 1.6;
-    font-family: 'Georgia', serif;
-}
-
-.image-content {
-    flex: 1;
-    position: relative;
-}
-
-.image-overlay {
-    position: relative;
-    
-    overflow: hidden;
-}
-
-.image-overlay img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: all 0.3s ease;
-}
-
-.image-overlay .overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 20px;
-    font-family: 'Helvetica Neue', sans-serif;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;;
+.search-input {
     padding: 10px;
-    
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
 }
-.image-overlay .overlay-text .overlay-line {
-    margin-top: 10px;
-    width: 70%;
-    height: 1px;
+
+.search-button {
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 20px;
+    color: white;
+}
+
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.836);
+    overflow-x: hidden;
+    transition: 0.5s;
+    z-index: 100; /* Ensure sidebar is above other elements */
+    padding-top: 60px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #007BFF;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
     background-color: white;
-    margin-left: auto;
-    margin-right: auto;
-}
-.image-overlay:hover img {
-    filter: brightness(40%);
+    border: none;
 }
 
-.image-overlay:hover .overlay-text {
-    opacity: 1;
+.tabs-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
 }
 
+.tab {
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    position: relative;
+}
 
-/*------------------- trenidng now ---------------*/
-.trending-now {
-    padding: 50px;
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
     background-color: #ffffff;
-    
 }
 
-.trending-now h2 {
+
+.items-container {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
+    gap: 20px;
+    padding: 20px 80px;
+
+}
+
+
+.item-card {
+    background-color: #ffffff;
+    padding: 15px;
     text-align: center;
-    font-size: 28px;
-    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.item-card-link {
+    text-decoration: none; /* Remove the underline */
+    color: inherit; /* Inherit the color from the parent element */
+}
+
+.item-card-link h3, .item-card-link p {
+    margin: 0; /* Remove any default margin */
+    color: black; /* Set the text color to black or any other desired color */
+}
+
+
+.item-card img {
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.item-card h3 {
+    text-align: left;
+    margin-left: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
     color: #333;
 }
 
-.trending-now-items {
-    display: flex;
-    justify-content: space-between;
-    gap: 70px;
+.item-card .store-name {
+    text-align: left;
+    margin-top: -5px;
+    margin-left: 5px;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
 }
 
+.item-card .price {
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.item-card:hover {
+    transform: scale(1.05);
+}
+
+.category-header {
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the title initially */
+    margin-bottom: 20px;
+    padding: 0 20px;
+    position: relative;
+}
+
+.category-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.sort-by-container {
+    margin-left: auto; /* Pushes the sort button to the rightmost side */
+}
+
+.sort-by-button {
+    background-color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 300;
+    border: none;
+
+}
+
+.sort-by-button i {
+    margin-left: 10px;
+}
+
+.sort-by-button:hover{
+    border-radius: 4px;
+    background-color: #dfdede56;
+    color: rgb(112, 112, 112) ;
+}
+
+
+
+.sort-options {
+    margin-top: 5px;
+    padding-top: 5px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 15px;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 200px;
+}
+
+.sort-options a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.sort-options a:hover {
+    background-color: #f1f1f1;
+}
 
 
 
@@ -539,8 +619,7 @@ header {
 
 .search-input {
     padding: 10px;
-    width: 320%;
-    padding: 10px;
+    width: 100%;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
@@ -558,16 +637,18 @@ header {
 
 
 .sidebar {
-    height: 93.85%;
+    height: 91.7%;
     width: 0;
     position: fixed;
     top: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.836);
     overflow-x: hidden;
+    overflow-y: auto; /* Allow vertical scrolling */
     transition: 0.5s;
     z-index: 1000; /* Ensure sidebar is above other elements */
     padding-top: 60px;
+    padding-bottom: 20px; /* Ensure there's space at the bottom */
     box-shadow: -2px 0 5px rgba(0,0,0,0.5);
 }
 
@@ -649,68 +730,3 @@ header {
     color: #ddd;
 }
 
-
-.items-container {
-    margin-top: 60px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
-    gap: 20px;
-    padding: 20px 80px;
-
-}
-
-
-.item-card {
-    background-color: #ffffff;
-    padding: 15px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.item-card-link {
-    text-decoration: none; /* Remove the underline */
-    color: inherit; /* Inherit the color from the parent element */
-}
-
-.item-card-link h3, .item-card-link p {
-    margin: 0; /* Remove any default margin */
-    color: black; /* Set the text color to black or any other desired color */
-}
-
-
-.item-card img {
-    width: 100%;
-    height: 290px;
-    object-fit: cover;
-    margin-bottom: 15px;
-}
-
-.item-card h3 {
-    text-align: left;
-    margin-left: 5px;
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.item-card .store-name {
-    text-align: left;
-    margin-top: -5px;
-    margin-left: 5px;
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 5px;
-}
-
-.item-card .price {
-    margin-top: 20px;
-    text-align: left;
-    margin-left: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #000000;
-}
-
-.item-card:hover {
-    transform: scale(1.05);
-}
