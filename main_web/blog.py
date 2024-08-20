@@ -6,6 +6,8 @@ from werkzeug.utils import secure_filename
 from .db import get_db
 from flask_mail import Mail, Message
 from .auth import send_store_email
+from chatbot.gpt import GPT
+from stylist.STYLIST import ImageGenerator 
 
 
 bp = Blueprint('blog', __name__)
@@ -680,3 +682,60 @@ def send_welcome_email(to, username):
         mail = Mail(current_app)  # Ensure mail is configured properly in your app
         mail.send(msg)
         print("Hello")
+
+
+#personlized stylist 
+@bp.route('/gpt_ask', methods=['POST'])
+def gpt_ask():
+    data = request.get_json()
+    user_message = data.get('message', '')
+    
+    # Initialize GPT instance and get response
+    gpt_instance = GPT()
+    response = gpt_instance.general_search(user_message)
+    
+    return jsonify({'response': response}) 
+
+#fashion expert 
+@bp.route('/gpt_wiki', methods=['POST']) 
+def gpt_wiki():
+    data = request.get_json()
+    user_message = data.get('message', '')
+    
+    # Initialize GPT instance and get response
+    gpt_instance = GPT()
+    response = gpt_instance.wiki_search(user_message)
+    
+    return jsonify({'response': response})  
+
+#database 
+@bp.route('/gpt_stores', methods=['POST']) 
+def gpt_stores():
+    data = request.get_json()
+    user_message = data.get('message', '')
+    
+    # Initialize GPT instance and get response
+    gpt_instance = GPT()
+    response = gpt_instance.stores_search(user_message)
+    
+    return jsonify({'response': response})   
+
+@bp.route('/virtual_stylist', methods=['POST'])
+def virtual_stylist():
+    data = request.form  # Get form data
+    model_type = data.get('model')
+    size = data.get('size')
+    image = request.files['image']
+    image_path = os.path.join('path/to/save/uploads', image.filename)
+    image.save(image_path)  # Save the uploaded image
+    generator = ImageGenerator(region_name="us-east-1", model_id="amazon.titan-image-generator-v2:0")
+    generated_image_path = os.path.join('path/to/save/generated/images', f'generated_{image.filename}')
+    generator.generate_image(
+        model=model_type,
+        item="clothing",
+        image_path=image_path,  # Use the path to the uploaded image
+        size=size
+    )
+
+    # Return the path to the generated image as a response
+    return jsonify({'generated_image_path': generated_image_path})
