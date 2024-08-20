@@ -43,10 +43,8 @@
 
     <div class="chatbot-container">
         <div class="chat-header">
-
             <i class="fa-solid fa-book"></i>
             Fashion Expert
-            
         </div>
         <div class="chat-content" id="chatWindow">
             <div class="message bot-message">
@@ -66,12 +64,51 @@
             </ul>
         </div>
         <div class="chat-input-area">
-           
             <input type="text" id="userInput" placeholder="Ask me anything about fashion...">
             <button id="sendButton"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 
-    <script src="../static/JS/fashion_expert.js"></script>
+    <script>
+        document.getElementById('sendButton').addEventListener('click', function() {
+            const userInput = document.getElementById('userInput').value;
+            
+            if (userInput.trim() !== "") {
+                const chatWindow = document.getElementById('chatWindow');
+                const userMessage = document.createElement('div');
+                userMessage.className = 'message user-message';
+                userMessage.textContent = userInput;
+                chatWindow.appendChild(userMessage);
+                
+                document.getElementById('userInput').value = "";
+
+                // Send user input to the backend
+                fetch('/gpt_wiki', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: userInput })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const botMessage = document.createElement('div');
+                    botMessage.className = 'message bot-message';
+                    botMessage.textContent = data.response;
+                    chatWindow.appendChild(botMessage);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        });
+
+        // Optional: Send message when pressing Enter
+        document.getElementById('userInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                document.getElementById('sendButton').click();
+            }
+        });
+    </script>
 </body>
 </html>
