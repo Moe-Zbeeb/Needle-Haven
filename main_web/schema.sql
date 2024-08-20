@@ -27,9 +27,8 @@ CREATE TABLE Store (
     password_hash VARCHAR(255) NOT NULL, -- Store hashed password
     phone_number VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    website VARCHAR(50) NOT NULL,
     description VARCHAR(255) NOT NULL, -- Increased length for better descriptions
-    rating INTEGER NOT NULL CHECK (rating >= 0 AND rating <= 5), -- Rating constraint
+    rating INTEGER CHECK (rating >= 0 AND rating <= 5), -- Rating constraint
     logo_path VARCHAR(255) 
 );   
 
@@ -43,19 +42,17 @@ CREATE TABLE Product (
     color VARCHAR(50) NOT NULL,
     description VARCHAR(255) NOT NULL, -- Increased length for better descriptions
     price INTEGER NOT NULL CHECK (price >= 0), -- Price constraint
-    rating INTEGER NOT NULL CHECK (rating >= 0 AND rating <= 5), -- Rating constraint
+    rating INTEGER CHECK (rating >= 0 AND rating <= 5), -- Rating constraint
     store_id INTEGER NOT NULL,
     date_of_release DATE NOT NULL,
     image_path VARCHAR(255) NOT NULL, 
+    image_path_2 VARCHAR(255) ,
+    image_path_3 VARCHAR(255) , 
+    image_path_4 VARCHAR(255) , 
+    image_path_5 VARCHAR(255) ,  
+    size VARCHAR(255) NOT NULL,
     FOREIGN KEY (store_id) REFERENCES Store(id)
 );  
-
-CREATE TABLE ProductImages (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    product_id INTEGER NOT NULL,
-    image_path VARCHAR(255) NOT NULL,
-    FOREIGN KEY (product_id) REFERENCES Product(id)
-);   
 
 CREATE TABLE CHATT (
     id INTEGER PRIMARY KEY AUTOINCREMENT,

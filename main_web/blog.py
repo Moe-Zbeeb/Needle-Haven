@@ -1,11 +1,12 @@
 import functools
 import os
-from flask import Blueprint, flash, g, redirect, render_template, request, session, url_for, current_app as app, abort
+from flask import Blueprint, flash, g, redirect, render_template, request, session, url_for, current_app, abort,jsonify
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
 from .db import get_db
 from flask_mail import Mail, Message
 from .auth import send_store_email
+
 
 bp = Blueprint('blog', __name__)
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -42,9 +43,21 @@ def load_logged_in_user():
 The products are fetched by joining the Product and Store tables on the store_id column. 
 I render the products on the index page using the render_template function."""    
 
+def get_top_4():
+    db = get_db()
+    products = db.execute(
+    '''
+    SELECT * FROM Product
+    ORDER BY rating DESC
+    LIMIT 4
+    '''
+    ).fetchall()
+    return products
+
 @bp.route('/index')
 def index():
-    return render_template('index.html')  
+    products = get_top_4()
+    return render_template('index.html',products=products)  
 
 
 @bp.route('/contact_us', methods=('GET', 'POST'))
@@ -77,11 +90,18 @@ def contact_us():
 
 @bp.route('/shop')
 def shop():
-    return redirect(url_for('blog.category',category_name="womenswear"))
+    return redirect(url_for('blog.category',category_name="Womenswear"))
 
 @bp.route('/category/<string:category_name>')
 def category(category_name):
-    if category_name == 'womenswear':
+    (category_name,clothing,shoes,accessories,productsnewin,productstrendingnow,stores)=categorize(category_name)
+    return render_template('shop.html',category_name=category_name,clothing=clothing,shoes=shoes,accessories=accessories,productsnewin = productsnewin,productstrendingnow = productstrendingnow,stores=stores)
+
+def categorize(category_name):
+    db = get_db()  # Get the database connection
+    cursor = db.execute('SELECT * FROM Store')  # Execute the SQL query
+    stores = cursor.fetchall()  # Fetch all the results
+    if category_name == 'Womenswear':
         clothing = [
             'Dresses',
             'Tops & Blouses',
@@ -98,59 +118,23 @@ def category(category_name):
         ]
         shoes = ['Heels', 'Flats', 'Boots', 'Sneakers', 'Sandals']
         accessories = ['Bags', 'Belts', 'Hats', 'Jewelry', 'Scarves']
-        imagesnewin = [
-            {
-                "image": "../static/images/womenswear1-newin.jpg",
-                "store": "Store Name 1",
-                "item_name": "Item Name 1",
-                "price": "$100.00"
-            },
-            {
-                "image": "../static/images/womenswear2-newin.jpg",
-                "store": "Store Name 2",
-                "item_name": "Item Name 2",
-                "price": "$120.00"
-            },
-            {
-                "image": "../static/images/womenswear3-newin.jpg",
-                "store": "Store Name 3",
-                "item_name": "Item Name 3",
-                "price": "$150.00"
-            },
-            {
-                "image": "../static/images/womenswear4-newin.jpg",
-                "store": "Store Name 4",
-                "item_name": "Item Name 4",
-                "price": "$130.00"
-            }
-        ]
-        imagestrendingnow = [
-            {
-                "image": "../static/images/womenswear1-trendingnow.jpg",
-                "store": "Store Name 1",
-                "item_name": "Item Name 1",
-                "price": "$100.00"
-            },
-            {
-                "image": "../static/images/womenswear2-trendingnow.jpg",
-                "store": "Store Name 2",
-                "item_name": "Item Name 2",
-                "price": "$120.00"
-            },
-            {
-                "image": "../static/images/womenswear3-trendingnow.jpg",
-                "store": "Store Name 3",
-                "item_name": "Item Name 3",
-                "price": "$150.00"
-            },
-            {
-                "image": "../static/images/womenswear4-trendingnow.jpg",
-                "store": "Store Name 4",
-                "item_name": "Item Name 4",
-                "price": "$130.00"
-            }
-        ]
-    elif category_name == 'menswear':
+        productsnewin = db.execute(
+            '''
+            SELECT * FROM Product
+            WHERE category = 'Womenswear'
+            ORDER BY date_of_release DESC
+            LIMIT 4
+            '''
+        ).fetchall()
+        productstrendingnow = db.execute(
+        '''
+        SELECT * FROM Product
+        WHERE category = 'Womenswear'
+        ORDER BY rating DESC
+        LIMIT 4
+        '''
+        ).fetchall()
+    elif category_name == 'Menswear':
         clothing = [
                 'T-Shirts & Polos', 'Shirts', 'Sweaters & Hoodies', 
                 'Jackets & Coats', 'Suits & Blazers', 'Pants & Chinos', 
@@ -158,150 +142,113 @@ def category(category_name):
             ]
         shoes = ['Boots', 'Sneakers', 'Loafers', 'Oxfords', 'Sandals']
         accessories = ['Bags', 'Belts', 'Hats', 'Watches', 'Sunglasses']
-        imagesnewin = [
-            {
-                "image": "../static/images/menswear1-newin.jpg",
-                "store": "Store Name 1",
-                "item_name": "Item Name 1",
-                "price": "$110.00"
-            },
-            {
-                "image": "../static/images/menswear2-newin.jpg",
-                "store": "Store Name 2",
-                "item_name": "Item Name 2",
-                "price": "$130.00"
-            },
-            {
-                "image": "../static/images/menswear3-newin.jpg",
-                "store": "Store Name 3",
-                "item_name": "Item Name 3",
-                "price": "$140.00"
-            },
-            {
-                "image": "../static/images/menswear4-newin.jpg",
-                "store": "Store Name 4",
-                "item_name": "Item Name 4",
-                "price": "$125.00"
-            }
-        ]
-        imagestrendingnow = [
-            {
-                "image": "../static/images/menswear1-trendingnow.jpg",
-                "store": "Store Name 1",
-                "item_name": "Item Name 1",
-                "price": "$110.00"
-            },
-            {
-                "image": "../static/images/menswear2-trendingnow.jpg",
-                "store": "Store Name 2",
-                "item_name": "Item Name 2",
-                "price": "$130.00"
-            },
-            {
-                "image": "../static/images/menswear3-trendingnow.jpg",
-                "store": "Store Name 3",
-                "item_name": "Item Name 3",
-                "price": "$140.00"
-            },
-            {
-                "image": "../static/images/menswear4-trendingnow.jpg",
-                "store": "Store Name 4",
-                "item_name": "Item Name 4",
-                "price": "$125.00"
-            }
-        ]
+        productsnewin = db.execute(
+            '''
+            SELECT * FROM Product
+            WHERE category = 'Menswear'
+            ORDER BY date_of_release DESC
+            LIMIT 4
+            '''
+        ).fetchall()
+        productstrendingnow = db.execute(
+        '''
+        SELECT * FROM Product
+        WHERE category = 'Menswear'
+        ORDER BY rating DESC
+        LIMIT 4
+        '''
+        ).fetchall()
     else:
         clothing = ['Tops', 'Pants', 'Dresses', 'Outerwear', 'Swimwear']
         shoes = ['Boots', 'Sneakers', 'Loafers', 'Oxfords', 'Sandals']
         accessories = ['Hats', 'Bags', 'Scarves', 'Gloves']
-        imagesnewin = [
-            {
-                "image": "../static/images/kidswear1-newin.jpg",
-                "store": "Store Name 1",
-                "item_name": "Kids Item 1",
-                "price": "$50.00"
-            },
-            {
-                "image": "../static/images/kidswear2-newin.jpg",
-                "store": "Store Name 2",
-                "item_name": "Kids Item 2",
-                "price": "$60.00"
-            },
-            {
-                "image": "../static/images/kidswear3-newin.jpg",
-                "store": "Store Name 3",
-                "item_name": "Kids Item 3",
-                "price": "$70.00"
-            },
-            {
-                "image": "../static/images/kidswear4-newin.jpg",
-                "store": "Store Name 4",
-                "item_name": "Kids Item 4",
-                "price": "$55.00"
-            }
-        ]
-        imagestrendingnow = [
-            {
-                "image": "../static/images/kidswear1-trendingnow.jpg",
-                "store": "Store Name 1",
-                "item_name": "Kids Item 1",
-                "price": "$40.00"
-            },
-            {
-                "image": "../static/images/kidswear2-trendingnow.jpg",
-                "store": "Store Name 2",
-                "item_name": "Kids Item 2",
-                "price": "$45.00"
-            },
-            {
-                "image": "../static/images/kidswear3-trendingnow.jpg",
-                "store": "Store Name 3",
-                "item_name": "Kids Item 3",
-                "price": "$50.00"
-            },
-            {
-                "image": "../static/images/kidswear4-trendingnow.jpg",
-                "store": "Store Name 4",
-                "item_name": "Kids Item 4",
-                "price": "$55.00"
-            }
-        ]
-    return render_template('shop.html',category_name = category_name,clothing=clothing,shoes=shoes,accessories=accessories,imagesnewin=imagesnewin,imagestrendingnow=imagestrendingnow)
-
-@bp.route('/shop/category/<string:category_name>/subcategory/<string:subcategory>/type/<string:type>', methods=['GET'])
-def filter_products(category_name, subcategory,type):
-    db = get_db()
-    
-    # Query to get products based on category and subcategory
-    if type == "":
-        products = db.execute(
-            'SELECT * FROM Product WHERE category = ? AND subcategory = ?',
-            (category_name, subcategory)
+        productsnewin = db.execute(
+            '''
+            SELECT * FROM Product
+            WHERE category = 'Kidswear'
+            ORDER BY date_of_release DESC
+            LIMIT 4
+            '''
         ).fetchall()
+        productstrendingnow = db.execute(
+        '''
+        SELECT * FROM Product
+        WHERE category = 'Kidswear'
+        ORDER BY rating DESC
+        LIMIT 4
+        '''
+        ).fetchall()
+    print(productsnewin)
+    return category_name,clothing,shoes,accessories,productsnewin,productstrendingnow,stores
+
+@bp.route('/shop/category/<string:category_name>/store/<string:store>/subcategory/<string:subcategory>/type/<string:type>', methods=['GET'])
+def filter_products(category_name, subcategory,type,store):
+    (category_name,clothing,shoes,accessories,productsnewin,productstrendingnow,stores)=categorize(category_name)
+    (subcategory, type , products, store) = filter(category_name,subcategory,type,store)
+    return render_template('items.html', category_name=category_name, subcategory=subcategory,store = store, type = type , products=products,clothing=clothing,shoes=shoes,accessories=accessories,stores=stores)
+
+def filter(category_name,subcategory,type,store):
+    db = get_db()
+    sort_option = request.args.get('sort', 'newest-first')  # Default sort option
+
+    # Construct the base query
+    if store != ':':
+        query = 'SELECT * FROM Product WHERE category = ? AND store = ?'
+        params = (category_name, store)
+    elif type == ":":
+        query = 'SELECT * FROM Product WHERE category = ? AND subcategory = ?'
+        params = (category_name, subcategory)
     else:
-        products = db.execute(
-        'SELECT * FROM Product WHERE category = ? AND subcategory = ? AND type = ?',
-        (category_name, subcategory, type)
-        ).fetchall()
-    return render_template('product.html', category_name=category_name, subcategory=subcategory, products=products)
+        query = 'SELECT * FROM Product WHERE category = ? AND subcategory = ? AND type = ?'
+        params = (category_name, subcategory, type)
 
+    # Add sorting logic
+    if sort_option == 'high-to-low':
+        query += ' ORDER BY price DESC'
+    elif sort_option == 'low-to-high':
+        query += ' ORDER BY price ASC'
+    elif sort_option == 'newest-first':
+        query += ' ORDER BY date_of_release DESC'
 
-"""The following function fetches a single product from the database and renders it on the product page.
-The product is fetched by joining the Product, Store, and ProductImages tables on the store_id and product_id columns.
-I render the product on the product page using the render_template function.""" 
-@bp.route('/product/<int:product_id>')
-def product(product_id):
+    products = db.execute(query, params).fetchall()
+
+    return subcategory, type , products, store
+
+@bp.route('/product/<int:product_id>', methods=['GET'])
+def item_details(product_id):
+    (item,sizes,category) = item_fetch(product_id)
+    (category_name,clothing,shoes,accessories,productsnewin,productstrendingnow,stores)=categorize(category)
+    return render_template('item_details.html', product_id = product_id, item = item, sizes=sizes,category_name = category_name,clothing = clothing,sheos = shoes,accessories = accessories,stores=stores)
+
+def item_fetch(product_id):
+    # Get the database connection
     db = get_db()
+
+    # Fetch the specific product details from the database using the given product_id
     product = db.execute(
-        'SELECT p.id, p.name, p.description, p.price, p.rating, s.name AS store_name, pi.image_path FROM Product p'
-        ' JOIN Store s ON p.store_id = s.id'
-        ' LEFT JOIN ProductImages pi ON p.id = pi.product_id'
-        ' WHERE p.id = ?',
+        'SELECT * FROM Product WHERE id = ?',
         (product_id,)
     ).fetchone()
+
+    # Check if the product exists
     if product is None:
-        abort(404, f"Product id {product_id} doesn't exist.")
-    return render_template('blog/product.html', product=product)
+        abort(404, description="Product not found")
+
+    # Fetch all sizes for the same product (excluding the size attribute)
+    sizes = db.execute(
+        '''
+        SELECT DISTINCT size FROM Product 
+        WHERE name = ? AND category = ? AND subcategory = ? AND type = ? AND store = ? AND color = ? AND description = ? AND price = ? AND rating = ? AND store_id = ? AND image_path = ?
+        ''',
+        (product['name'], product['category'], product['subcategory'], product['type'], product['store'], product['color'], product['description'], product['price'], product['rating'], product['store_id'], product['image_path'])
+    ).fetchall()
+
+    # Extract sizes into a list
+    size_list = [size['size'] for size in sizes]
+
+    # Render the template with the product details and the sizes list
+    return product, size_list, product['category']
+
 
 def user_required(view):
     @functools.wraps(view)
@@ -334,6 +281,7 @@ def upload_product():
         description = request.form['description']
         price = request.form['price']
         date_of_release = request.form['date_of_release']
+        size = request.form['size']
         store_id = session.get('store_id')
 
         # Fetch the store's name based on the store_id from the session
@@ -366,6 +314,8 @@ def upload_product():
                 error = 'Price is required.'
             elif not date_of_release:
                 error = 'Date of release is required.'
+            elif not size:
+                error = "Size is required."
             elif not store_name:
                 error = 'Store could not be found.'
 
@@ -373,9 +323,9 @@ def upload_product():
                 try:
                     # Insert the product along with the store's name into the Product table
                     db.execute(
-                        'INSERT INTO Product (name, category, subcategory, store, store_id, type, description, price, color, date_of_release, image_path) '
+                        'INSERT INTO Product (name, category, subcategory, store, store_id, type, description, price, color, date_of_release, size, image_path) '
                         'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-                        (name, category, subcategory, store_name, store_id, type, description, price, color, date_of_release, image_path)
+                        (name, category, subcategory, store_name, store_id, type, description, price, color, date_of_release, size, image_path)
                     )
                     db.commit()
 
@@ -436,6 +386,7 @@ def edit_product(product_id):
         price = request.form['price']
         color = request.form['color']
         date_of_release = request.form['date_of_release']
+        size = request.form['size']
 
         # Handle the uploaded image
         image = request.files['image']
@@ -464,14 +415,16 @@ def edit_product(product_id):
             error = 'Color is required.'
         elif not date_of_release:
             error = 'Date of release is required.'
+        elif not size:
+            error = 'Size is required.'
 
         if error is None:
             try:
                 # Update the product in the database
                 db.execute(
-                    'UPDATE Product SET name = ?, category = ?, subcategory = ?, type= ?, description = ?, price = ?, color = ?, date_of_release = ?, image_path = ? '
+                    'UPDATE Product SET name = ?, category = ?, subcategory = ?, type= ?, description = ?, price = ?, color = ?, date_of_release = ?,size = ? ,image_path = ? '
                     'WHERE id = ? AND store_id = ?',
-                    (name, category, subcategory, type, description, price, color, date_of_release, image_path, product_id, store_id)
+                    (name, category, subcategory, type, description, price, color, date_of_release,size, image_path, product_id, store_id)
                 )
                 db.commit()
                 flash('Product successfully updated.')
@@ -490,7 +443,6 @@ def profile():
     elif session.get('store_id'):
         return redirect(url_for('blog.store_home'))  # Redirect to the store's profile
     else:
-        flash('Login required.')
         return redirect(url_for('auth.login'))  # Redirect to the login page
 
 
@@ -515,7 +467,22 @@ def user_home():
 
 @bp.route('/store_profile')
 def store_home():
-    return render_template('myprofile_store.html')
+    # Ensure the store is logged in
+    store_id = session.get('store_id')
+    if store_id is None:
+        return redirect(url_for('auth.login'))
+
+    # Query the database for the store's details
+    db = get_db()
+    store = db.execute(
+        'SELECT * FROM store WHERE id = ?', (store_id,)
+    ).fetchone()
+
+    if store is None:
+        return redirect(url_for('auth.login'))
+
+    # Pass the store's details to the template
+    return render_template('myprofile_store.html', store=store)
 
 @bp.route('/change_password',methods=['GET','POST'])
 def change_password():
@@ -578,47 +545,138 @@ def change_password():
         if error:
             flash(error)
 
-    return render_template('myprofile_user.html') 
+    return render_template('myprofile_user.html')
 
-@bp.route('/GPT/<int:i>', methods=['GET', 'POST'])
-def gpt(i):
-    gpt = GPT() 
+
+@bp.route('/search/<string:page>', methods=['GET'])
+def search(page):
+    db = get_db()
+    query = request.args.get('query', '')
+    tab = request.args.get('tab', 'items')
+    if page == 'items':
+        category_name = request.args.get('category_name', '')
+        subcategory = request.args.get('subcategory', '')
+        type = request.args.get('type', '')
+        store = request.args.get('store','')
+        (category_name,clothing,shoes,accessories,productsnewin,productstrendingnow,stores)=categorize(category_name)
+        (subcategory, type , products,store) = filter(category_name,subcategory,type,store)
+    elif page == 'shop':
+        category_name = request.args.get('category_name', '')
+        (category_name,clothing,shoes,accessories,productsnewin,productstrendingnow,stores)=categorize(category_name)
+    elif page == 'item_details':
+        product_id = request.args.get('product_id','')
+        (item,sizes,category) = item_fetch(product_id)
+        (category_name,clothing,shoes,accessories,productsnewin,productstrendingnow,stores)=categorize(category)
+    else:
+        products_index = get_top_4()
+
+    if not query:
+        if page == 'items':
+            return render_template('items.html', results=[], tab=tab, query=query, sidebar_open=True, category_name=category_name, subcategory=subcategory,store = store, type = type , products=products,clothing=clothing,shoes=shoes,accessories=accessories,stores=stores)
+        elif page == 'shop':
+            return render_template('shop.html',results=[], tab=tab, query=query, sidebar_open=True,category_name=category_name,clothing=clothing,shoes=shoes,accessories=accessories,productsnewin=productsnewin,productstrendingnow=productstrendingnow,stores=stores)
+        elif page == 'item_details':
+            return render_template('item_details.html', results=[], tab=tab, query=query, sidebar_open=True, product_id = product_id,item = item, sizes=sizes,category_name = category_name,clothing = clothing,sheos = shoes,accessories = accessories,stores=stores)
+        else:
+            return render_template(page+'.html', results=[], tab=tab, query=query, sidebar_open=True,products=products_index)
+
+    if tab == 'stores':
+        stores = db.execute(
+            'SELECT * FROM Store WHERE name LIKE ?',
+            ('%' + query + '%',)
+        ).fetchall()
+        if page == 'items':
+            return render_template('items.html', results=stores, tab=tab, query=query, sidebar_open=True, category_name=category_name, subcategory=subcategory,store = store, type = type , products=products,clothing=clothing,shoes=shoes,accessories=accessories,stores=stores)
+        elif page == 'shop':
+            return render_template('shop.html',results=stores, tab=tab, query=query, sidebar_open=True,category_name=category_name,clothing=clothing,shoes=shoes,accessories=accessories,productsnewin=productsnewin,productstrendingnow=productstrendingnow,stores=stores)
+        elif page == 'item_details':
+            return render_template('item_details.html', results=stores, tab=tab, query=query, sidebar_open=True, product_id = product_id, item = item, sizes=sizes,category_name = category_name,clothing = clothing,sheos = shoes,accessories = accessories,stores=stores)
+        else:
+            return render_template(page+'.html', results=stores, tab=tab, query=query, sidebar_open=True,products=products_index)
     
-    if request.method == 'POST':
-        query = request.form.get('query')
-        
-        if i == 1: 
-            response1 = gpt.general_search(query)
-            return response1 
-        elif i == 2: 
-            wiki_response = gpt.wiki_search(query)
-            return wiki_response
-        elif i == 3:
-            stores_response = gpt.stores_search(query)
-            return stores_response    
-        else: 
-            return "Invalid request"
+    elif tab == 'items':
+        items = db.execute(
+            '''SELECT * FROM Product WHERE 
+            name LIKE ? OR 
+            category LIKE ? OR 
+            subcategory LIKE ? OR 
+            type LIKE ? OR 
+            description LIKE ? OR 
+            store LIKE ? OR
+            color LIKE ?''',
+            ('%' + query + '%', '%' + query + '%', '%' + query + '%',  '%' + query + '%','%' + query + '%', '%' + query + '%', '%' + query + '%')
+        ).fetchall()
+        if page == 'items':
+            return render_template('items.html', results=items, tab=tab, query=query, sidebar_open=True, category_name=category_name, subcategory=subcategory,store = store, type = type , products=products,clothing=clothing,shoes=shoes,accessories=accessories,stores=stores)
+        elif page == 'shop':
+            return render_template('shop.html',results=items, tab=tab, query=query, sidebar_open=True,category_name=category_name,clothing=clothing,shoes=shoes,accessories=accessories,productsnewin=productsnewin,productstrendingnow=productstrendingnow,stores=stores)
+        elif page == 'item_details':
+            return render_template('item_details.html', results=items, tab=tab, query=query, sidebar_open=True, product_id = product_id,item = item, sizes=sizes,category_name = category_name,clothing = clothing,sheos = shoes,accessories = accessories,stores=stores)
+        else:
+            return render_template(page+'.html', results=items, tab=tab, query=query, sidebar_open=True,products=products_index)
 
-    # Render the HTML form if the request method is GET
-    return render_template('gpt_form.html')   
+    if page == 'items':
+        return render_template('items.html',results=[], tab=tab, query=query, sidebar_open=True, category_name=category_name, subcategory=subcategory,store = store, type = type , products=products,clothing=clothing,shoes=shoes,accessories=accessories,stores=stores)
+    elif page == 'shop':
+        return render_template('shop.html',results=[], tab=tab, query=query, sidebar_open=True,category_name=category_name,clothing=clothing,shoes=shoes,accessories=accessories,productsnewin=productsnewin,productstrendingnow=productstrendingnow,stores=stores)
+    elif page == 'item_details':
+        return render_template('item_details.html', results=[], tab=tab, query=query, sidebar_open=True, product_id = product_id, item = item, sizes=sizes,category_name = category_name,clothing = clothing,sheos = shoes,accessories = accessories,stores=stores)
+    else:
+        return render_template(page+'.html', results=[], tab=tab, query=query, sidebar_open=True,products=products_index)
 
 
-@bp.route('/stylist', methods=['GET', 'POST'])
-def stylist():
-    if request.method == 'POST':
-        gender = request.form.get('gender')
-        itemname = request.form.get('itemname')
-        path = request.form.get('path')
-        size = request.form.get('size')
-        
-        generator = ImageGenerator(region_name="us-east-1", model_id="amazon.titan-image-generator-v2:0")
-        generator.generate_image(
-            model=gender, 
-            item=itemname,
-            image_path=path,  
-            size=size 
-        )
-        
-        return f"Image generated successfully with {gender}, {itemname}, {path}, {size}"
+@bp.route('/add_to_cart', methods=['POST'])
+def add_to_cart():
+    product_id = request.form.get('product_id')
     
-    return render_template('stylist_form.html')
+    if 'cart' not in session:
+        session['cart'] = []
+    
+    session['cart'].append(product_id)
+    session.modified = True  # Mark the session as modified to save changes
+
+    flash('Item added to your bag!')
+    return redirect(url_for('blog.item_details', product_id=product_id))
+
+@bp.route('/proceed_to_buy', methods=['POST'])
+def proceed_to_buy():
+    if 'cart' not in session or not session['cart']:
+        flash('Your cart is empty.')
+        return redirect(url_for('your_cart_page'))
+
+    product_ids = session['cart']
+    db = get_db()
+    products = db.execute(
+        'SELECT * FROM Product WHERE id IN ({})'.format(','.join('?' * len(product_ids))),
+        product_ids
+    ).fetchall()
+
+    # Send an email to the respective stores
+    send_emails_to_stores(products)
+
+    # Clear the cart after purchase
+    session.pop('cart', None)
+
+    return render_template('purchase_confirmation.html', products=products)
+
+def send_emails_to_stores(products):
+    db = get_db()
+    for product in products:
+        store_name = product['store']
+        store_email = db.execute('SELECT email FROM Store WHERE name = ?', (store_name,)).fetchone()
+        product_details = f"Product: {product['name']}\nPrice: ${product['price']}\nSize: {product['size']}"
+
+        with current_app.app_context():
+            msg = Message("Order Placement",recipients=[store_email])
+            msg.body = f"Product Details: {product_details}"
+            mail = Mail(current_app)  # Ensure mail is configured properly in your app
+            mail.send(msg)
+            print("Hello")
+
+def send_welcome_email(to, username):
+    with current_app.app_context():
+        msg = Message("Welcome to Our Service", recipients=[to])
+        msg.body = f"Hi {username},\n\nWelcome to chic! We're glad to have you with us.\n\nBest Regards,\nDev Team"
+        mail = Mail(current_app)  # Ensure mail is configured properly in your app
+        mail.send(msg)
+        print("Hello")

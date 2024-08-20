@@ -148,8 +148,13 @@ def load_a_user():
 
 @bp.route('/logout')
 def logout():
+    # Clear the session
     session.clear()
-    return redirect(url_for('index'))
+    flash('You have been logged out successfully.')
+
+    # Redirect to the login page or homepage
+    return redirect(url_for('auth.login'))  # Assuming you have a common login page for both users and stores
+
 
 def login_required(view):
     @functools.wraps(view)
@@ -165,12 +170,11 @@ def send_welcome_email(to, username):
         msg.body = f"Hi {username},\n\nWelcome to chic! We're glad to have you with us.\n\nBest Regards,\nDev Team"
         mail = Mail(current_app)  # Ensure mail is configured properly in your app
         mail.send(msg)
-        print("Hello")
 
 
 def send_store_email(message,message_body):
-        with current_app.app_context():
-            msg = Message(message, recipients=["needlehaven@hotmail.com"])
-            msg.body = message_body
-            mail = Mail(current_app)  # Ensure mail is configured properly in your app
-            mail.send(msg)
+    with current_app.app_context():
+        msg = Message(message, recipients=["needlehaven@hotmail.com"])
+        msg.body = message_body
+        mail = Mail(current_app)  # Ensure mail is configured properly in your app
+        mail.send(msg)
