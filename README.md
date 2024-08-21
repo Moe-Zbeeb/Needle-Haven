@@ -19,12 +19,12 @@ Before you begin, ensure you have the following installed on your system:
 
 1. **Clone the Repository**
     ```bash
-    git clone https://github.com/zbeeb1/CHIC.git
+    git clone https://github.com/zbeeb1/Needle-Haven.git
     ```
 
 2. **Change the Directory**
     ```bash
-    cd CHIC/
+    cd Needle-Haven
     ```
 
 3. **Set Up Virtual Environment**
