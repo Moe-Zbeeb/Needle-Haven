@@ -6,6 +6,7 @@ from werkzeug.utils import secure_filename
 from .db import get_db
 from flask_mail import Mail, Message
 from .auth import send_store_email
+from datetime import datetime
 from chatbot.gpt import GPT
 from stylist.STYLIST import ImageGenerator 
 
@@ -275,69 +276,75 @@ def store_required(view):
 @store_required
 def upload_product():
     if request.method == 'POST':
-        name = request.form['name']
+        name = request.form['item_name']
         category = request.form['category']
         subcategory = request.form['subcategory']
         type = request.form['type']
         color = request.form['color']
         description = request.form['description']
         price = request.form['price']
-        date_of_release = request.form['date_of_release']
         size = request.form['size']
         store_id = session.get('store_id')
+        date_of_release = datetime.now().date()  # Get the current date
 
         # Fetch the store's name based on the store_id from the session
         db = get_db()
         store = db.execute('SELECT name FROM Store WHERE id = ?', (store_id,)).fetchone()
         store_name = store['name'] if store else None
 
-        # Handle the uploaded image
-        image = request.files['image']
-        if image and allowed_file(image.filename):
-            filename = secure_filename(image.filename)
-            image_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            image.save(image_path)
+        # Initialize the image paths
+        image_paths = [''] * 5  # Empty list for up to 5 images
 
-            error = None
+        # Handle multiple image uploads
+        for i in range(5):  # Assuming up to 5 images
+            image = request.files.get(f'image{i + 1}')
+            if image and allowed_file(image.filename):
+                filename = secure_filename(image.filename)
+                image_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+                image.save(image_path)
+                image_paths[i] = image_path
 
-            if not name:
-                error = 'Product name is required.'
-            elif not category:
-                error = 'Category is required.'
-            elif not subcategory:
-                error = 'Subcategory is required.'
-            elif not type:
-                error = 'Type is required.'
-            elif not color:
-                error = 'Color is required.'
-            elif not description:
-                error = 'Description is required.'
-            elif not price:
-                error = 'Price is required.'
-            elif not date_of_release:
-                error = 'Date of release is required.'
-            elif not size:
-                error = "Size is required."
-            elif not store_name:
-                error = 'Store could not be found.'
+        error = None
 
-            if error is None:
-                try:
-                    # Insert the product along with the store's name into the Product table
-                    db.execute(
-                        'INSERT INTO Product (name, category, subcategory, store, store_id, type, description, price, color, date_of_release, size, image_path) '
-                        'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-                        (name, category, subcategory, store_name, store_id, type, description, price, color, date_of_release, size, image_path)
-                    )
-                    db.commit()
+        if not name:
+            error = 'Product name is required.'
+        elif not category:
+            error = 'Category is required.'
+        elif not subcategory:
+            error = 'Subcategory is required.'
+        elif not type:
+            error = 'Type is required.'
+        elif not color:
+            error = 'Color is required.'
+        elif not description:
+            error = 'Description is required.'
+        elif not price:
+            error = 'Price is required.'
+        elif not size:
+            error = "Size is required."
+        elif not store_name:
+            error = 'Store could not be found.'
+        elif not any(image_paths):  # Ensure at least one image was uploaded
+            error = 'At least one image is required.'
 
-                    flash('Product successfully uploaded.')
-                    return redirect(url_for('blog.index'))
-                except db.IntegrityError:
-                    error = f"Product {name} already exists."
+        if error is None:
+            try:
+                # Insert the product along with the store's name, image paths, and date of release into the Product table
+                db.execute(
+                    '''INSERT INTO Product (name, category, subcategory, store, store_id, type, description, price, color, size, 
+                    image_path, image_path_2, image_path_3, image_path_4, image_path_5, date_of_release) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                    (name, category, subcategory, store_name, store_id, type, description, price, color, size, 
+                    image_paths[0], image_paths[1], image_paths[2], image_paths[3], image_paths[4], date_of_release)
+                )
+                db.commit()
 
-            flash(error)
-    return render_template('upload_product.html')
+                flash('Product successfully uploaded.')
+                return redirect(url_for('blog.store_home'))
+            except db.IntegrityError as e:
+                error = f"Product {name} already exists. Error details: {str(e)}"
+
+    return render_template('myprofile_store.html')
 
 """delete product function"""  
 @bp.route('/delete_product/<int:product_id>', methods=('POST',))
