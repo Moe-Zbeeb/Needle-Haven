@@ -9,7 +9,6 @@ from langchain.agents import AgentType
 from langchain.chains import RetrievalQA
 from langchain.document_loaders import CSVLoader
 from langchain.vectorstores import DocArrayInMemorySearch
-from IPython.display import display, Markdown
 from langchain.llms import OpenAI   
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.chains.router import MultiPromptChain
@@ -24,11 +23,10 @@ from langchain.vectorstores import DocArrayInMemorySearch
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.document_loaders import CSVLoader
 from langchain.llms import OpenAI
-from IPython.display import Markdown
 
 llm_model="gpt-3.5-turbo"
 openai_api_key = "sk-None-XS76dEz4IURDhsv2AJb9T3BlbkFJYoWnTsDhATqUPkspJY6n"
-input_file = ""
+input_file = r"stores.csv"
 
 class GPT:
     def __init__(self):
@@ -183,7 +181,7 @@ class GPT:
         return self.chain.run(req)
 
     def wiki_search(self, request):
-        return self.agent.invoke(request)
+        return self.agent.invoke(request)["output"]
 
     def stores_search(self, req):
         prompt = ChatPromptTemplate.from_template(
@@ -195,4 +193,3 @@ class GPT:
         item = chain.run(req)
         req = "Please list all your "+item+" as bullet points, and summarize each one and mention from which store is it."
         return(self.index.query(req, llm=self.llm_replacement_model))
-        
