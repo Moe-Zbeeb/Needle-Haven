@@ -314,3 +314,30 @@ document.getElementById('productForm').addEventListener('keydown', function(even
         document.getElementById('nextToPhotoUpload').click();
     }
 });
+
+
+function showForm(model) {
+    document.querySelectorAll('form').forEach(form => form.style.display = 'none');
+    document.querySelectorAll('.output').forEach(output => output.style.display = 'none');
+    document.getElementById(model + '-form').style.display = 'block';
+}
+
+function submitForm(formId, outputId, actionUrl) {
+    const form = document.getElementById(formId);
+    const outputDiv = document.getElementById(outputId);
+    const formData = new FormData(form);
+
+    fetch(actionUrl, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        outputDiv.innerHTML = `<strong>Prediction:</strong> ${Object.values(data)[0]}`;
+        outputDiv.style.display = 'block';
+    })
+    .catch(error => {
+        outputDiv.innerHTML = `<strong>Error:</strong> ${error}`;
+        outputDiv.style.display = 'block';
+    });
+}
