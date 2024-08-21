@@ -20,7 +20,10 @@
             </nav>
         </div>
         <div class="logo">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo-img">
+            <a href="{{ url_for('blog.index') }}">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo-img original">
+                <img src="../static/images/logo-inverse.png" alt="Alternate Logo" class="logo-img alternate">
+            </a>
         </div>
         <div class="header-right">
             <div class="icon-container">
@@ -29,10 +32,10 @@
                         <img src="{{ url_for('static', filename='images/gpt-icon.svg') }}" alt="GPT Icon" class="gpt-icon-img">
                     </button>
                     <div class="gpt-options">
-                        <a href="#" class="gpt-option">Product Finder</a>
-                        <a href="#" class="gpt-option">Fashion Expert</a>
-                        <a href="#" class="gpt-option">Personalized Stylist</a>
-                        <a href="#" class="gpt-option">Virtual Model</a>
+                        <a href="{{ url_for('blog.product_finder') }}" class="gpt-option">Product Finder</a>
+                        <a href="{{ url_for('blog.fashion_expert') }}" class="gpt-option">Fashion Expert</a>
+                        <a href="{{ url_for('blog.personalized_stylist') }}" class="gpt-option">Personalized Stylist</a>
+                        <a href="{{ url_for('blog.virtual_model') }}"class="gpt-option">Virtual Model</a>
                     </div>
                 </div>
                 <div class="profile-button">
@@ -41,7 +44,9 @@
                     </a>
                 </div>
                 <div class="cart-button">
-                    <i class="fas fa-shopping-cart"></i>
+                    <a href="{{ url_for('blog.view_cart') }}">
+                        <i class="fas fa-shopping-cart" style="color: white;" ></i>
+                    </a>
                 </div>
                 <div class="navbar-button">
                     <i class="fas fa-bars" onclick="openNav()"></i>

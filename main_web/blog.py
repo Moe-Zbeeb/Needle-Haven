@@ -7,9 +7,10 @@ from .db import get_db
 from flask_mail import Mail, Message
 from .auth import send_store_email
 from datetime import datetime
+import joblib
+import pandas as pd
 from chatbot.gpt import GPT
 from stylist.STYLIST import ImageGenerator 
-
 
 bp = Blueprint('blog', __name__)
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -258,7 +259,7 @@ def user_required(view):
     def wrapped_view(**kwargs):
         if not session.get('user_id'):
             flash('User login required.')
-            return redirect(url_for('auth.user_login'))
+            return redirect(url_for('auth.login'))
         return view(**kwargs)
     return wrapped_view
 
@@ -643,36 +644,51 @@ def add_to_cart():
     
     session['cart'].append(product_id)
     session.modified = True  # Mark the session as modified to save changes
-
-    flash('Item added to your bag!')
     return redirect(url_for('blog.item_details', product_id=product_id))
 
-@bp.route('/proceed_to_buy', methods=['POST'])
-def proceed_to_buy():
-    if 'cart' not in session or not session['cart']:
-        flash('Your cart is empty.')
-        return redirect(url_for('your_cart_page'))
-
-    product_ids = session['cart']
+def get_cart_items():
+    cart_items = []
     db = get_db()
-    products = db.execute(
-        'SELECT * FROM Product WHERE id IN ({})'.format(','.join('?' * len(product_ids))),
-        product_ids
-    ).fetchall()
+    if 'cart' in session:
+        product_ids = session['cart']
+        for product_id in product_ids:
+            product = db.execute('SELECT * FROM Product WHERE id = ?', (product_id,)).fetchone()
+            if product:
+                cart_items.append(product)
+    
+    return cart_items
 
-    # Send an email to the respective stores
-    send_emails_to_stores(products)
+@bp.route('/view_cart', methods=['GET'])
+def view_cart():
+    cart_items = get_cart_items()  # Fetch all items in the cart
+    subtotal = sum(item['price'] for item in cart_items) 
+    return render_template('shopping_bag.html', cart_items=cart_items,subtotal=subtotal)
 
-    # Clear the cart after purchase
-    session.pop('cart', None)
+@bp.route('/remove_from_cart', methods=['POST'])
+def remove_from_cart():
+    item_id = request.form['item_id']
+    
+    # Assuming 'cart' is a list of item ids in the session
+    if 'cart' in session:
+        session['cart'] = [item for item in session['cart'] if str(item) != str(item_id)]
+        session.modified = True  # Ensure the session is saved
 
-    return render_template('purchase_confirmation.html', products=products)
+    return redirect(url_for('blog.view_cart'))  # Redirect back to the cart view
+
+
+@bp.route('/proceed_to_buy', methods=['POST'])
+@user_required
+def proceed_to_buy():
+    cart_items = get_cart_items()  # Fetch all items in the cart
+    subtotal = sum(item['price'] for item in cart_items) 
+    return render_template('checkout.html',subtotal=subtotal)
 
 def send_emails_to_stores(products):
     db = get_db()
     for product in products:
         store_name = product['store']
         store_email = db.execute('SELECT email FROM Store WHERE name = ?', (store_name,)).fetchone()
+        store_email = store_email[0]
         product_details = f"Product: {product['name']}\nPrice: ${product['price']}\nSize: {product['size']}"
 
         with current_app.app_context():
@@ -680,15 +696,183 @@ def send_emails_to_stores(products):
             msg.body = f"Product Details: {product_details}"
             mail = Mail(current_app)  # Ensure mail is configured properly in your app
             mail.send(msg)
-            print("Hello")
 
-def send_welcome_email(to, username):
-    with current_app.app_context():
-        msg = Message("Welcome to Our Service", recipients=[to])
-        msg.body = f"Hi {username},\n\nWelcome to chic! We're glad to have you with us.\n\nBest Regards,\nDev Team"
-        mail = Mail(current_app)  # Ensure mail is configured properly in your app
-        mail.send(msg)
-        print("Hello")
+@bp.route('/process_order', methods=['POST'])
+def process_order():
+    # Retrieve form data
+    first_name = request.form.get('first_name')
+    last_name = request.form.get('last_name')
+    address = request.form.get('address')
+    city = request.form.get('city')
+    state = request.form.get('state')
+    zip_code = request.form.get('zip_code')
+    country = request.form.get('country')
+    phone = request.form.get('phone')
+    email = request.form.get('email')
+
+    user_id = session.get('user_id')
+    # Retrieve cart items from session
+    cart_items = get_cart_items()  # Assume you have a function to get cart items
+    subtotal = sum(item['price'] for item in cart_items) 
+    total = subtotal + 3
+    # Process the order (e.g., save it to the database)
+    db = get_db()
+    order_id = db.execute(
+        'INSERT INTO Orders (user_id,first_name, last_name, address, city, state, zip_code, country, phone, email, total_price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        (user_id,first_name, last_name, address, city, state, zip_code, country, phone, email,total)
+    ).lastrowid
+    
+    for item in cart_items:
+        db.execute(
+            'INSERT INTO OrderItems (order_id, product_id, quantity, price) VALUES (?, ?, ?, ?)',
+            (order_id, item['id'], 1, item['price'])  # Adjust quantity as needed
+        )
+
+    db.commit()
+
+    send_emails_to_stores(cart_items)
+
+    # Clear the cart
+    session.pop('cart', None)
+
+    # Redirect to a confirmation page or display a success message
+    flash('Your order has been successfully placed!')
+    return render_template('checkout.html',subtotal = 0)
+
+
+@bp.route('/personalized_stylist')
+def personalized_stylist():
+    return render_template('personalized_stylist.html')
+
+@bp.route('/fashion_expert')
+def fashion_expert():
+    return render_template('fashion_expert.html')
+
+@bp.route('/product_finder')
+def product_finder():
+    return render_template('product_finder.html')
+
+@bp.route('/virtual_model')
+def virtual_model():
+    return render_template('virtual_model.html')
+
+@bp.route('/price_predict', methods=['POST'])
+def price_predict():
+    data = request.form
+    brand = data.get('brand')
+    category = data.get('category')
+    color = data.get('color')
+    size = data.get('size')
+    material = data.get('material')
+
+    # Load the model
+    
+    model_path = '/home/rawad/Documents/Amazon/Needle-Haven/main_models_classes/clothes_price_pred/clothes_price_predprice_prediction_model.pkl'
+    model = joblib.load(model_path)
+
+    # Create the input data
+    input_data = {
+        'Brand': [brand],
+        'Category': [category],
+        'Color': [color],
+        'Size': [size],
+        'Material': [material]
+    }
+
+    # Predict price
+    predicted_price = model.predict(pd.DataFrame(input_data))
+
+    return jsonify({'predicted_price': predicted_price[0]})
+
+
+@bp.route('/average_rating_predict', methods=['POST'])
+def average_rating_predict():
+    data = request.form
+    product_name = data.get('product_name')
+    gender = data.get('gender')
+    category = data.get('category')
+    color = data.get('color')
+    age_group = data.get('age_group')
+    season = data.get('season')
+    price = data.get('price')
+    material = data.get('material')
+    sales_count = data.get('sales_count')
+    brand = data.get('brand')
+    discount = data.get('discount')
+
+    # Load the model
+    model_path = '/home/rawad/Documents/Amazon/Needle-Haven/main_models_classes/rating/average_rating_prediction_model.pkl'
+    model = joblib.load(model_path)
+
+    # Create the input data
+    input_data = {
+        'product_name': [product_name],
+        'gender': [gender],
+        'category': [category],
+        'color': [color],
+        'age_group': [age_group],
+        'season': [season],
+        'price': [price],
+        'material': [material],
+        'sales_count': [sales_count],
+        'brand': [brand],
+        'discount': [discount]
+    }
+
+    # Predict average rating
+    predicted_rating = model.predict(pd.DataFrame(input_data))
+
+    return jsonify({'predicted_rating': predicted_rating[0]})
+
+
+@bp.route('/eps_predict', methods=['POST'])
+def eps_predict():
+    data = request.form
+    cagr_net_income = float(data.get('cagr_net_income'))
+    cagr_revenues = float(data.get('cagr_revenues'))
+
+    # Load the model
+    model_path = '/home/rawad/Documents/Amazon/Needle-Haven/main_models_classes/eps/growth_prediction_model.pkl'
+    model = joblib.load(model_path)
+
+    # Create the input data
+    input_data = {
+        'CAGR_Net_Income_5Y': [cagr_net_income],
+        'CAGR_Revenues_5Y': [cagr_revenues]
+    }
+
+    # Predict EPS
+    predicted_eps = model.predict(pd.DataFrame(input_data))
+
+    return jsonify({'predicted_eps': predicted_eps[0]})
+
+
+@bp.route('/size_predict', methods=['POST'])
+def size_predict():
+    data = request.form
+    weight = float(data.get('weight'))
+    age = float(data.get('age'))
+    height = float(data.get('height'))
+
+    # Load the model and label encoder
+    model_path = '/home/rawad/Documents/Amazon/Needle-Haven/main_models_classes/size/size_prediction_model.pkl'
+    label_encoder_path ='/home/rawad/Documents/Amazon/Needle-Haven/main_models_classes/size/size_label_encoder.pkl'
+    model = joblib.load(model_path)
+    label_encoder = joblib.load(label_encoder_path)
+
+    # Create the input data
+    input_data = {
+        'weight': [weight],
+        'age': [age],
+        'height': [height]
+    }
+
+    # Predict size (encoded) and decode it
+    predicted_size_encoded = model.predict(pd.DataFrame(input_data))
+    predicted_size = label_encoder.inverse_transform(predicted_size_encoded)
+
+    return jsonify({'predicted_size': predicted_size[0]})
+
 
 
 #personlized stylist 
@@ -746,3 +930,4 @@ def virtual_stylist():
 
     # Return the path to the generated image as a response
     return jsonify({'generated_image_path': generated_image_path})
+

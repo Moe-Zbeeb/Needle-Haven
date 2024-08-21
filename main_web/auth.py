@@ -150,7 +150,6 @@ def load_a_user():
 def logout():
     # Clear the session
     session.clear()
-    flash('You have been logged out successfully.')
 
     # Redirect to the login page or homepage
     return redirect(url_for('auth.login'))  # Assuming you have a common login page for both users and stores

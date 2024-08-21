@@ -84,3 +84,33 @@ CREATE TABLE MODELS (
     description TEXT NOT NULL,   
     model_path VARCHAR(255) NOT NULL
 );
+
+-- Create Orders table
+CREATE TABLE Orders (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,  -- Reference to the user placing the order
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    state VARCHAR(50) NOT NULL,
+    zip_code VARCHAR(20) NOT NULL,
+    country VARCHAR(50) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- Timestamp for when the order is placed
+    total_price DECIMAL(10, 2) NOT NULL CHECK (total_price >= 0),  -- Total price of the order
+    status VARCHAR(50) DEFAULT 'Pending', -- Order status (e.g., Pending, Shipped, Delivered, Cancelled)
+    FOREIGN KEY (user_id) REFERENCES user(id)
+);
+
+-- Create OrderItems table
+CREATE TABLE OrderItems (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    order_id INTEGER NOT NULL,  -- Reference to the order
+    product_id INTEGER NOT NULL, -- Reference to the product
+    quantity INTEGER NOT NULL CHECK (quantity > 0),  -- Quantity of the product
+    price DECIMAL(10, 2) NOT NULL CHECK (price >= 0),  -- Price of the product at the time of purchase
+    FOREIGN KEY (order_id) REFERENCES Orders(id),
+    FOREIGN KEY (product_id) REFERENCES Product(id)
+);
