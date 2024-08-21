@@ -28,7 +28,11 @@ Before you begin, ensure you have the following installed on your system:
     ```
 
 3. **Set Up Virtual Environment**
-
+    First, create a virtual environment:
+    ```bash
+    python3 -m venv venv_name
+    ```
+    To activate the vritual environment:
     **On Linux:**
     ```bash
     . venv/bin/activate
